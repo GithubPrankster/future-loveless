@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/menu/assets/FL-title.png" type="Texture" id=1]
 [ext_resource path="res://src/menu/assets/bar.png" type="Texture" id=2]
@@ -39,6 +39,37 @@ shader_param/speed = 0.5
 [sub_resource type="ShaderMaterial" id=8]
 shader = ExtResource( 3 )
 shader_param/speed = -0.5
+
+[sub_resource type="Animation" id=9]
+resource_name = "fade-in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "fade-opening"
+tracks/0/type = "value"
+tracks/0/path = NodePath("opening:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
 [node name="menu" type="Node2D"]
 script = ExtResource( 6 )
@@ -127,3 +158,8 @@ position = Vector2( 624, 180 )
 stream = ExtResource( 5 )
 autoplay = true
 bus = "music"
+
+[node name="anims" type="AnimationPlayer" parent="."]
+autoplay = "fade-in"
+anims/fade-in = SubResource( 9 )
+anims/fade-opening = SubResource( 10 )
