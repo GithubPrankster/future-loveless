@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://src/menu/assets/FL-title.png" type="Texture" id=1]
 [ext_resource path="res://src/menu/assets/bar.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://src/menu/rand_dec.gd" type="Script" id=8]
 [ext_resource path="res://src/menu/treble.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/menu/casey.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/menu/kids.gd" type="Script" id=11]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -350,6 +351,7 @@ __meta__ = {
 
 [node name="kids" type="Node2D" parent="."]
 modulate = Color( 1, 1, 1, 0 )
+script = ExtResource( 11 )
 
 [node name="casey" parent="kids" instance=ExtResource( 10 )]
 
@@ -465,7 +467,6 @@ position = Vector2( 85, 203 )
 position = Vector2( 624, 180 )
 
 [node name="open_credits" type="ColorRect" parent="."]
-visible = false
 margin_right = 640.0
 margin_bottom = 360.0
 mouse_filter = 2
