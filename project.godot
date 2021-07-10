@@ -19,6 +19,10 @@ boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
+[autoload]
+
+Info="*res://src/common/Info.gd"
+
 [display]
 
 window/size/width=640

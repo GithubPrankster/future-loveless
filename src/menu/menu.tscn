@@ -1,13 +1,17 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://src/menu/assets/FL-title.png" type="Texture" id=1]
 [ext_resource path="res://src/menu/assets/bar.png" type="Texture" id=2]
 [ext_resource path="res://src/menu/assets/bars.shader" type="Shader" id=3]
-[ext_resource path="res://src/menu/assets/hifont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://src/common/Excelorate-Font.otf" type="DynamicFontData" id=4]
 [ext_resource path="res://src/menu/assets/chillin.ogg" type="AudioStream" id=5]
 [ext_resource path="res://src/menu/menu.gd" type="Script" id=6]
+[ext_resource path="res://src/menu/assets/hifont.tres" type="DynamicFont" id=7]
+[ext_resource path="res://src/menu/rand_dec.gd" type="Script" id=8]
+[ext_resource path="res://src/menu/treble.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/menu/casey.tscn" type="PackedScene" id=10]
 
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 
 uniform vec4 mixer : hint_color = vec4(1.0);
@@ -20,27 +24,115 @@ void fragment()
 	COLOR = mix(BLACK, COLOR, smoothstep(1.0, 0.85 + (UV.x * 0.1), UV.y));
 }"
 
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 shader_param/mixer = Color( 1, 1, 1, 1 )
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0, 0.688742, 1 )
 colors = PoolColorArray( 0.184314, 0.890196, 0.643137, 1, 0.560784, 0.686275, 0.760784, 1, 0.780392, 0.188235, 0.341176, 1 )
 
-[sub_resource type="GradientTexture" id=6]
-gradient = SubResource( 5 )
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
 width = 360
 
-[sub_resource type="ShaderMaterial" id=7]
+[sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 3 )
 shader_param/speed = 0.5
 
-[sub_resource type="ShaderMaterial" id=8]
+[sub_resource type="ShaderMaterial" id=6]
 shader = ExtResource( 3 )
 shader_param/speed = -0.5
 
+[sub_resource type="CanvasItemMaterial" id=12]
+blend_mode = 1
+light_mode = 1
+
+[sub_resource type="Gradient" id=13]
+offsets = PoolRealArray( 0, 0.45, 0.5, 0.55, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.556291, 0.556291, 0.556291, 1, 1, 1, 1, 1, 0.701987, 0.701987, 0.701987, 1, 0, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=14]
+gradient = SubResource( 13 )
+width = 40
+
+[sub_resource type="DynamicFont" id=15]
+size = 36
+outline_size = 2
+outline_color = Color( 0.113725, 0.701961, 0.666667, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 36
+outline_size = 2
+outline_color = Color( 0.0745098, 0.701961, 0.168627, 1 )
+font_data = ExtResource( 4 )
+
 [sub_resource type="Animation" id=11]
+resource_name = "move-in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("treble:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -131, 203 ), Vector2( 73, 203 ), Vector2( 57, 203 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("treble:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 0.501961 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("casey:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 771, 203 ), Vector2( 567, 203 ), Vector2( 583, 203 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("casey:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 0.501961 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:modulate")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
 resource_name = "bop"
 length = 5.0
 loop = true
@@ -81,9 +173,13 @@ tracks/2/keys = {
 "values": [ Vector2( 0, -6 ), Vector2( 0, -14 ) ]
 }
 
+[sub_resource type="DynamicFont" id=8]
+size = 23
+font_data = ExtResource( 4 )
+
 [sub_resource type="Animation" id=9]
 resource_name = "fade-in"
-length = 2.0
+length = 10.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -91,10 +187,94 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 1, 6, 8, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("open_credits:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("open_credits/Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.3, 2.3, 3.3, 4.4, 4.401, 5.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "A Godot Wild Jam 35 Submission
+By", "A Godot Wild Jam 35 Submission
+By", "A Godot Wild Jam 35 Submission
+By
+Uneven Prankster", "A Godot Wild Jam 35 Submission
+By
+Uneven Prankster
+RoligtJackson", "A Godot Wild Jam 35 Submission
+By
+Uneven Prankster
+RoligtJackson
+FalcoTz", "A Godot Wild Jam 35 Submission
+By
+Uneven Prankster
+RoligtJackson
+FalcoTz", "A Godot Wild Jam 35 Submission
+By
+Uneven Prankster
+RoligtJackson
+FalcoTz" ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("open_credits/Label:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("open_credits/cool_label")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 6, 6.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "epic_label"
+}, {
+"args": [  ],
+"method": "epic_label"
+} ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("open_credits/cool_label:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -128,24 +308,26 @@ tracks/1/keys = {
 script = ExtResource( 6 )
 
 [node name="bg" type="TextureRect" parent="."]
-material = SubResource( 4 )
+material = SubResource( 2 )
 margin_left = 640.0
 margin_right = 1000.0
 margin_bottom = 640.0
 rect_rotation = 90.0
-texture = SubResource( 6 )
+mouse_filter = 2
+texture = SubResource( 4 )
 stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="bar" type="TextureRect" parent="."]
-material = SubResource( 7 )
+material = SubResource( 5 )
 margin_left = 574.0
 margin_top = 0.999985
 margin_right = 638.0
 margin_bottom = 129.0
 rect_rotation = -30.9207
+mouse_filter = 2
 texture = ExtResource( 2 )
 stretch_mode = 2
 __meta__ = {
@@ -153,17 +335,89 @@ __meta__ = {
 }
 
 [node name="bar2" type="TextureRect" parent="."]
-material = SubResource( 8 )
+material = SubResource( 6 )
 margin_left = 11.0
 margin_top = -32.0
 margin_right = 75.0
 margin_bottom = 96.0
 rect_rotation = 30.9
+mouse_filter = 2
 texture = ExtResource( 2 )
 stretch_mode = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="kids" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="casey" parent="kids" instance=ExtResource( 10 )]
+
+[node name="treble" parent="kids" instance=ExtResource( 9 )]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -131, 203 )
+
+[node name="bar" type="TextureRect" parent="kids"]
+material = SubResource( 12 )
+margin_left = 300.0
+margin_right = 340.0
+margin_bottom = 360.0
+texture = SubResource( 14 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="treble-shadow" type="Label" parent="kids"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 23.0
+margin_top = 312.0
+margin_right = 210.0
+margin_bottom = 343.0
+custom_fonts/font = ExtResource( 7 )
+text = "::treble::"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="treble" type="Label" parent="kids/treble-shadow"]
+margin_top = -3.0
+margin_right = 180.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 15 )
+text = "::treble::"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="casey-shadow" type="Label" parent="kids"]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 437.0
+margin_top = 312.0
+margin_right = 617.0
+margin_bottom = 343.0
+custom_fonts/font = ExtResource( 7 )
+text = "::casey::"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="casey" type="Label" parent="kids/casey-shadow"]
+margin_top = -3.0
+margin_right = 180.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 16 )
+text = "::casey::"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="anim" type="AnimationPlayer" parent="kids"]
+anims/move-in = SubResource( 11 )
 
 [node name="opening" type="Node2D" parent="."]
 
@@ -182,7 +436,7 @@ margin_left = 157.0
 margin_top = 212.0
 margin_right = 482.0
 margin_bottom = 243.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 7 )
 text = "::press enter::"
 align = 1
 __meta__ = {
@@ -193,7 +447,7 @@ __meta__ = {
 margin_top = -3.0
 margin_right = 325.0
 margin_bottom = 28.0
-custom_fonts/font = ExtResource( 4 )
+custom_fonts/font = ExtResource( 7 )
 text = "::press enter::"
 align = 1
 __meta__ = {
@@ -202,13 +456,49 @@ __meta__ = {
 
 [node name="bop" type="AnimationPlayer" parent="opening"]
 autoplay = "bop"
-anims/bop = SubResource( 11 )
+anims/bop = SubResource( 7 )
 
 [node name="treble_pos" type="Node2D" parent="."]
-position = Vector2( 16, 180 )
+position = Vector2( 85, 203 )
 
 [node name="casey_pos" type="Node2D" parent="."]
 position = Vector2( 624, 180 )
+
+[node name="open_credits" type="ColorRect" parent="."]
+visible = false
+margin_right = 640.0
+margin_bottom = 360.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="open_credits"]
+margin_left = 81.0
+margin_top = 97.0
+margin_right = 559.0
+margin_bottom = 140.0
+custom_fonts/font = SubResource( 8 )
+text = "A Godot Wild Jam 35 Submission
+By"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="cool_label" type="Label" parent="open_credits"]
+visible = false
+margin_left = 81.0
+margin_top = 97.0
+margin_right = 559.0
+margin_bottom = 140.0
+custom_fonts/font = SubResource( 8 )
+align = 1
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="chillin" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )

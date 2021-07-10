@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/menu/assets/casey-fw.wav" type="AudioStream" id=1]
+[ext_resource path="res://src/menu/assets/casey_portrait.png" type="Texture" id=2]
+[ext_resource path="res://src/menu/hoverer.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "hover"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.501961 ), Color( 1, 1, 1, 0.552941 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="casey" type="Sprite"]
+modulate = Color( 1, 1, 1, 0.501961 )
+position = Vector2( 771, 203 )
+rotation = -3.14159
+scale = Vector2( 0.5, -0.5 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+but_who_first = true
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/hover = SubResource( 1 )
+
+[node name="audio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 188, -130 )
+stream = ExtResource( 1 )
