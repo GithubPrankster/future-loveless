@@ -13,11 +13,12 @@ func _ready() -> void:
 		lf = rf
 		rf = temp
 
+# TODO: This is atrocious and does not handle multi-press please kill it
 #genious.
 func _input(_event) -> void:
 	if Info.opening_out:
-		if Input.is_action_just_pressed(lf):
+		if Input.is_action_just_pressed(lf) and modulate.a != 1.0:
 			anim.play("hover")
 			adios.play()
-		if Input.is_action_just_pressed(rf) and modulate.a == 1.0:
+		elif Input.is_action_just_pressed(rf) and modulate.a == 1.0:
 			anim.play_backwards("hover")

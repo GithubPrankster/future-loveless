@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/talkin.ogg-79aa8062dc0d4e052fffe177d7415bcb.oggstr"
+
+[deps]
+
+source_file="res://src/cutscene/assets/talkin.ogg"
+dest_files=[ "res://.import/talkin.ogg-79aa8062dc0d4e052fffe177d7415bcb.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=64.0
