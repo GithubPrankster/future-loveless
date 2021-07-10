@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/common/Excelorate-Font.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/credits/assets/tradeoff.svg" type="Texture" id=2]
@@ -6,6 +6,22 @@
 [sub_resource type="DynamicFont" id=1]
 size = 18
 font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "fade-in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="credits" type="Node2D"]
 
@@ -114,3 +130,7 @@ __meta__ = {
 modulate = Color( 0.960784, 0.47451, 0.47451, 1 )
 position = Vector2( 42, 141 )
 texture = ExtResource( 2 )
+
+[node name="anims" type="AnimationPlayer" parent="."]
+autoplay = "fade-in"
+anims/fade-in = SubResource( 2 )
