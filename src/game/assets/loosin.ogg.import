@@ -12,4 +12,4 @@ dest_files=[ "res://.import/loosin.ogg-06d3d28d61513752eda36ea2d47124f1.oggstr" 
 [params]
 
 loop=true
-loop_offset=0
+loop_offset=38.4
