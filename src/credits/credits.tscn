@@ -1,3 +1,116 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/common/Excelorate-Font.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/credits/assets/tradeoff.svg" type="Texture" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 18
+font_data = ExtResource( 1 )
 
 [node name="credits" type="Node2D"]
+
+[node name="bg" type="ColorRect" parent="."]
+margin_right = 374.0
+margin_bottom = 360.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="centerer" type="CenterContainer" parent="bg"]
+margin_right = 374.0
+margin_bottom = 96.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="credits" type="Label" parent="bg/centerer"]
+modulate = Color( 0.776471, 0.996078, 1, 1 )
+margin_left = 10.0
+margin_top = 11.0
+margin_right = 364.0
+margin_bottom = 84.0
+custom_fonts/font = SubResource( 1 )
+text = "Credits:
+UnevenPrankster - programmin
+RoligtJackson - art
+FalcoTz - music"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="centerer2" type="CenterContainer" parent="bg"]
+margin_top = 318.0
+margin_right = 374.0
+margin_bottom = 357.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="thx" type="Label" parent="bg/centerer2"]
+modulate = Color( 0.776471, 0.964706, 1, 1 )
+margin_left = 76.0
+margin_top = 2.0
+margin_right = 298.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 1 )
+text = "Thanks for Playing
+-FUTURE- Loveless"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="centerer3" type="CenterContainer" parent="bg"]
+margin_left = 83.0
+margin_top = 100.0
+margin_right = 374.0
+margin_bottom = 182.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gwj" type="Label" parent="bg/centerer3"]
+modulate = Color( 0.776471, 0.792157, 1, 1 )
+margin_left = 29.0
+margin_top = 4.0
+margin_right = 262.0
+margin_bottom = 77.0
+custom_fonts/font = SubResource( 1 )
+text = "A Godot Wild Jam 35
+Submission
+Wildcard used:
+Tradeoff"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ending-img-placehold" type="ColorRect" parent="."]
+margin_left = 374.0
+margin_right = 640.0
+margin_bottom = 360.0
+color = Color( 0.607843, 0.615686, 0.537255, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="stats" type="Label" parent="."]
+modulate = Color( 1, 0.776471, 0.776471, 1 )
+margin_left = 5.0
+margin_top = 218.0
+margin_right = 164.0
+margin_bottom = 272.0
+custom_fonts/font = SubResource( 1 )
+text = "Magic used:
+Health lost:
+Attacks done:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tradeoff" type="Sprite" parent="."]
+modulate = Color( 0.960784, 0.47451, 0.47451, 1 )
+position = Vector2( 42, 141 )
+texture = ExtResource( 2 )
