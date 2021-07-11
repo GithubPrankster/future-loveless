@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/common/FerriteCoreDX-Medium.otf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "load"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "loading.", "loading..", "loading...", "loading.." ]
+}
+
+[node name="loadin" type="Node2D"]
+
+[node name="rect" type="ColorRect" parent="."]
+margin_right = 640.0
+margin_bottom = 360.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="Label" parent="."]
+margin_left = 452.0
+margin_top = 312.0
+margin_right = 630.0
+margin_bottom = 351.0
+custom_fonts/font = SubResource( 1 )
+text = "loading."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="anim" type="AnimationPlayer" parent="."]
+autoplay = "load"
+anims/load = SubResource( 2 )

@@ -1,0 +1,9 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://src/common/Excelorate-Font.otf" type="DynamicFontData" id=1]
+
+[resource]
+size = 48
+outline_size = 3
+outline_color = Color( 0.317647, 0, 0.866667, 1 )
+font_data = ExtResource( 1 )

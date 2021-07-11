@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/menu/assets/treble_portrait.png" type="Texture" id=1]
+[ext_resource path="res://src/common/Excelorate-Font.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://src/menu/assets/treble-fw.wav" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
@@ -32,6 +33,18 @@ tracks/1/keys = {
 "method": "play"
 } ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("text:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "unhover"
@@ -48,6 +61,24 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.552941 ), Color( 1, 1, 1, 0.501961 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("text:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=3]
+size = 54
+outline_size = 3
+outline_color = Color( 0.317647, 0, 0.866667, 1 )
+font_data = ExtResource( 2 )
 
 [node name="treble" type="Sprite"]
 modulate = Color( 1, 1, 1, 0.501961 )
@@ -62,3 +93,43 @@ anims/unhover = SubResource( 2 )
 [node name="audio" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( -245, -169.999 )
 stream = ExtResource( 3 )
+
+[node name="text" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="Label" type="Label" parent="text"]
+margin_left = -212.501
+margin_top = -397.498
+margin_right = 220.499
+margin_bottom = -347.498
+rect_scale = Vector2( -1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "all rounder"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="text"]
+margin_left = -235.001
+margin_top = -334.998
+margin_right = 184.999
+margin_bottom = -284.998
+rect_scale = Vector2( -1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "avg attack"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="text"]
+modulate = Color( 1, 1, 0, 1 )
+margin_left = -225.001
+margin_top = -272.498
+margin_right = 213.999
+margin_bottom = -222.498
+rect_scale = Vector2( -1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "high health"
+__meta__ = {
+"_edit_use_anchors_": false
+}

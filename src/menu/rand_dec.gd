@@ -24,15 +24,15 @@ const epic_text = [
 	["UN Owen\n","wasnt her"],
 	["J00 guna luv dis ga3m\n","it haz b1g p3nor i thnk"],
 	["Its the\n","nutshack"],
-	["Death Ray","Golden Age"],
+	["Death Ray\n","Golden Age"],
 	["No pacman!\n","Drugs are baaad!"]
 ]
 
 func epic_label() -> void:
+	text = epic_text[pick][0]
 	if cnt:
-		text = epic_text[pick][0] + epic_text[pick][1]
+		text += epic_text[pick][1]
 	else:
-		text = epic_text[pick][0]
 		cnt = true
 
 # Called when the node enters the scene tree for the first time.

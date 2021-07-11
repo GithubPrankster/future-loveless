@@ -1,9 +1,44 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/cutscene/assets/talkin.ogg" type="AudioStream" id=1]
 
+[sub_resource type="Animation" id=1]
+resource_name = "fade-in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("talkin:volume_db")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -80.0, -45.72, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="cutscene" type="Node2D"]
+modulate = Color( 0, 0, 0, 1 )
 
 [node name="talkin" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
+volume_db = -80.0
 autoplay = true
+bus = "music"
+
+[node name="anim" type="AnimationPlayer" parent="."]
+autoplay = "fade-in"
+anims/fade-in = SubResource( 1 )

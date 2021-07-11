@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://src/menu/assets/FL-title.png" type="Texture" id=1]
 [ext_resource path="res://src/menu/assets/bar.png" type="Texture" id=2]
@@ -305,6 +305,34 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
+[sub_resource type="Animation" id=17]
+resource_name = "fade-out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("chillin:volume_db")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+
 [node name="menu" type="Node2D"]
 script = ExtResource( 6 )
 
@@ -354,6 +382,7 @@ modulate = Color( 1, 1, 1, 0 )
 script = ExtResource( 11 )
 
 [node name="casey" parent="kids" instance=ExtResource( 10 )]
+modulate = Color( 0, 0, 0, 1 )
 
 [node name="treble" parent="kids" instance=ExtResource( 9 )]
 modulate = Color( 0, 0, 0, 1 )
@@ -460,13 +489,8 @@ __meta__ = {
 autoplay = "bop"
 anims/bop = SubResource( 7 )
 
-[node name="treble_pos" type="Node2D" parent="."]
-position = Vector2( 85, 203 )
-
-[node name="casey_pos" type="Node2D" parent="."]
-position = Vector2( 624, 180 )
-
 [node name="open_credits" type="ColorRect" parent="."]
+visible = false
 margin_right = 640.0
 margin_bottom = 360.0
 mouse_filter = 2
@@ -510,3 +534,4 @@ bus = "music"
 autoplay = "fade-in"
 anims/fade-in = SubResource( 9 )
 anims/fade-opening = SubResource( 10 )
+anims/fade-out = SubResource( 17 )
