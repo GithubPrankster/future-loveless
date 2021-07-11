@@ -45,32 +45,31 @@ shader_param/speed = 0.5
 shader = ExtResource( 3 )
 shader_param/speed = -0.5
 
-[sub_resource type="CanvasItemMaterial" id=12]
+[sub_resource type="CanvasItemMaterial" id=7]
 blend_mode = 1
 light_mode = 1
 
-[sub_resource type="Gradient" id=13]
+[sub_resource type="Gradient" id=8]
 offsets = PoolRealArray( 0, 0.45, 0.5, 0.55, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.556291, 0.556291, 0.556291, 1, 1, 1, 1, 1, 0.701987, 0.701987, 0.701987, 1, 0, 0, 0, 1 )
 
-[sub_resource type="GradientTexture" id=14]
-gradient = SubResource( 13 )
+[sub_resource type="GradientTexture" id=9]
+gradient = SubResource( 8 )
 width = 40
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=10]
 size = 36
 outline_size = 2
 outline_color = Color( 0.113725, 0.701961, 0.666667, 1 )
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=16]
+[sub_resource type="DynamicFont" id=11]
 size = 36
 outline_size = 2
 outline_color = Color( 0.0745098, 0.701961, 0.168627, 1 )
 font_data = ExtResource( 4 )
 
-[sub_resource type="Animation" id=11]
-resource_name = "move-in"
+[sub_resource type="Animation" id=12]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("treble:position")
@@ -133,8 +132,7 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "bop"
+[sub_resource type="Animation" id=13]
 length = 5.0
 loop = true
 tracks/0/type = "value"
@@ -174,12 +172,11 @@ tracks/2/keys = {
 "values": [ Vector2( 0, -6 ), Vector2( 0, -14 ) ]
 }
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=14]
 size = 23
 font_data = ExtResource( 4 )
 
-[sub_resource type="Animation" id=9]
-resource_name = "fade-in"
+[sub_resource type="Animation" id=15]
 length = 10.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -278,8 +275,7 @@ tracks/5/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=10]
-resource_name = "fade-opening"
+[sub_resource type="Animation" id=16]
 tracks/0/type = "value"
 tracks/0/path = NodePath("opening:modulate")
 tracks/0/interp = 1
@@ -389,11 +385,11 @@ modulate = Color( 0, 0, 0, 1 )
 position = Vector2( -131, 203 )
 
 [node name="bar" type="TextureRect" parent="kids"]
-material = SubResource( 12 )
+material = SubResource( 7 )
 margin_left = 300.0
 margin_right = 340.0
 margin_bottom = 360.0
-texture = SubResource( 14 )
+texture = SubResource( 9 )
 stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -416,7 +412,7 @@ __meta__ = {
 margin_top = -3.0
 margin_right = 180.0
 margin_bottom = 28.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 10 )
 text = "::treble::"
 align = 1
 __meta__ = {
@@ -440,7 +436,7 @@ __meta__ = {
 margin_top = -3.0
 margin_right = 180.0
 margin_bottom = 28.0
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 11 )
 text = "::casey::"
 align = 1
 __meta__ = {
@@ -448,7 +444,7 @@ __meta__ = {
 }
 
 [node name="anim" type="AnimationPlayer" parent="kids"]
-anims/move-in = SubResource( 11 )
+anims/move-in = SubResource( 12 )
 
 [node name="opening" type="Node2D" parent="."]
 
@@ -487,7 +483,7 @@ __meta__ = {
 
 [node name="bop" type="AnimationPlayer" parent="opening"]
 autoplay = "bop"
-anims/bop = SubResource( 7 )
+anims/bop = SubResource( 13 )
 
 [node name="open_credits" type="ColorRect" parent="."]
 visible = false
@@ -504,7 +500,7 @@ margin_left = 81.0
 margin_top = 97.0
 margin_right = 559.0
 margin_bottom = 140.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 14 )
 text = "A Godot Wild Jam 35 Submission
 By"
 align = 1
@@ -518,7 +514,7 @@ margin_left = 81.0
 margin_top = 97.0
 margin_right = 559.0
 margin_bottom = 140.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 14 )
 align = 1
 script = ExtResource( 8 )
 __meta__ = {
@@ -532,6 +528,6 @@ bus = "music"
 
 [node name="anims" type="AnimationPlayer" parent="."]
 autoplay = "fade-in"
-anims/fade-in = SubResource( 9 )
-anims/fade-opening = SubResource( 10 )
+anims/fade-in = SubResource( 15 )
+anims/fade-opening = SubResource( 16 )
 anims/fade-out = SubResource( 17 )

@@ -25,7 +25,9 @@ const epic_text = [
 	["J00 guna luv dis ga3m\n","it haz b1g p3nor i thnk"],
 	["Its the\n","nutshack"],
 	["Death Ray\n","Golden Age"],
-	["No pacman!\n","Drugs are baaad!"]
+	["No pacman!\n","Drugs are baaad!"],
+	["Are we the last\n", "living souls"],
+	["Cmon Gavin Newsome\n","Take it like a man"]
 ]
 
 func epic_label() -> void:

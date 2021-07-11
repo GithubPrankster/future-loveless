@@ -4,7 +4,7 @@
 [ext_resource path="res://src/menu/assets/casey_portrait.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 20.187
+radius = 13.5725
 height = 28.0
 
 [node name="player" type="KinematicBody2D"]
@@ -21,4 +21,5 @@ scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
 
 [node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 12 )
 shape = SubResource( 1 )
