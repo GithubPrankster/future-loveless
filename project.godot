@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Future Loveless"
-config/description="2 dinguses utilize their skills and magic, a lost power, to defeat the LOVELESS. A strange manical lady commands these strange opponents and would rather see our 2 heroes 6 feet under."
+config/description="2 dinguses utilize their skills and magic, a lost power, to defeat the LOVELESS. A strange maniacal lady commands these strange opponents and would rather see our 2 heroes 6 feet under."
 run/main_scene="res://src/game/world.tscn"
 boot_splash/image="res://src/common/squarington.png"
 boot_splash/fullsize=false
