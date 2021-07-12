@@ -37,6 +37,20 @@ position = Vector2( 50, 49 )
 texture = ExtResource( 3 )
 script = ExtResource( 2 )
 
+[node name="health" type="ProgressBar" parent="."]
+margin_left = 47.0
+margin_top = -35.0
+margin_right = 260.0
+margin_bottom = -21.0
+max_value = 8.0
+step = 1.0
+value = 8.0
+rounded = true
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="icon" type="Sprite" parent="."]
 position = Vector2( 3, 0 )
 rotation = 3.14159

@@ -72,20 +72,6 @@ position = Vector2( 320, 180 )
 [node name="player_icon" parent="." instance=ExtResource( 3 )]
 position = Vector2( 50, 50 )
 
-[node name="health" type="ProgressBar" parent="."]
-margin_left = 94.0
-margin_top = 19.0
-margin_right = 307.0
-margin_bottom = 33.0
-max_value = 8.0
-step = 1.0
-value = 8.0
-rounded = true
-percent_visible = false
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="anims" type="AnimationPlayer" parent="."]
 autoplay = "fade-in"
 anims/fade-in = SubResource( 3 )
