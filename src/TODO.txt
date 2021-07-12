@@ -1,0 +1,88 @@
+Fight Stuff:
+-> Combat
+* States ->
+	* Attacking
+	* Defending : (KH-like, fires timer)
+	* Casting ->
+		* Fire : (Cooldown of 4s)
+		* Ice : (Cooldown of 8s)
+		* Homerun : (Cooldown of 4s)
+		* Bubbles : (Cooldown of 8s)
+	* Death : (Game Over)
+* Health : (Treble : 16 HP, Casey: 8 HP)
+* Combo : (Enemies)
+
+-> Pause System
+* Handle going in and out (miyamoto meant it!)
+* Volume control (Master, SFX, Music)
+* Back to beginning (shares logic with credits?)
+
+-> Enemies
+* Bully (throws punches)
+* Brat (throws wack at you and slaps)
+* Punk (wacks a club into you)
+* Dancer (what do you expect)
+
+-> Wave System
+* First Wave Impl
+* Cards ->
+	* Health+
+	* Rand. Magic Cooldown-
+	* Atk+
+	* Health sacrifice for upgrade (attack on Health+)
+* Remaining waves
+
+-> Game Over
+* Fade everything
+* Play Music
+* Detect retry and react accordingly
+
+-> Ohmnia
+* Boss WARNING + Announcement
+* Electric Arcs
+* Bolts
+* Breakdown (Desperation Move)
+
+Cutscene Stuff:
+-> Portraits
+* (Wait for Roligt to give a heads up!)
+
+-> Text Typewritting
+* Text showcase
+* Update letter every frame
+* SFX
+
+-> Dialogue
+* (Wait for Falco to give a heads up!)
+* Scenes ->
+	* "The Start"
+	* "Number 1"
+
+Credits Stuff:
+-> High Art
+* Casey proto-model
+* Treble proto-model
+* Ohmnia proto-model
+* Pillar of rocks with the 3 on top and city low (KH reference)
+* 3D Render by Uneven
+
+-> Stats
+* make it happen
+* it's not THAT hard
+
+-> Back to Start
+* Restart logic
+
+Showcasing:
+-> Trailer
+* (Wait for Falco to give a heads up!)
+* Voice contribution from the gang? (DECIDE)
+
+-> Finish up itch.io and NG pages
+* Credit anything left uncredited PLBS
+* Description check pass (sanity's sake)
+
+-> Test game plenty
+* Check if NG discord would like to test game on NG
+
+-> Submit to GWJ35, crack open your fav drink you did it!!!!!
