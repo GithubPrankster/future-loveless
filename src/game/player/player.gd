@@ -4,13 +4,15 @@ class_name Player
 # State Machine
 enum PlayerState {MOVIN,ATTACKIN}
 var state = PlayerState.MOVIN
-
-
 # Logic
 export(float) var FORCE  = 160.0
 var ACC : float = FORCE * 4.0
 
+var ATK_FORCE : float = FORCE * 32.0
+var ATK_ACC : float = 16.0
+
 var velocity : Vector2 = Vector2.ZERO
+var last_dir : Vector2 = Vector2.ZERO
 
 # Animation
 onready var chr = $chr
@@ -26,8 +28,12 @@ func move(dt : float) -> void:
 	
 	if vel != Vector2.ZERO:
 		velocity = velocity.move_toward(vel * FORCE, cur_acc)
+		last_dir = vel
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, cur_acc)
+	
+	if Input.is_action_just_pressed("attack"):
+		velocity = velocity.move_toward(last_dir * ATK_FORCE, cur_acc * ATK_ACC)
 	
 	velocity = move_and_slide(velocity)
 	
@@ -39,12 +45,13 @@ func move(dt : float) -> void:
 func attack() -> void:
 	pass
 
-func _process(delta) -> void:
+func _physics_process(delta):
 	match(state):
 		PlayerState.MOVIN:
 			move(delta)
 		PlayerState.ATTACKIN:
 			attack()
-	
+
+func _process(_delta) -> void:
 	scale.x = (global_position.y / get_viewport().size.y) * 1.75
 	scale.y = scale.x
