@@ -1,13 +1,19 @@
 extends KinematicBody2D
 class_name Player
 
+# State Machine
 enum PlayerState {MOVIN,ATTACKIN}
 var state = PlayerState.MOVIN
 
+
+# Logic
 export(float) var FORCE  = 160.0
 var ACC : float = FORCE * 4.0
 
 var velocity : Vector2 = Vector2.ZERO
+
+# Animation
+onready var chr = $chr
 
 func axis() -> Vector2:
 	var vert : float = Input.get_action_strength("down") - Input.get_action_strength("up")
@@ -24,6 +30,11 @@ func move(dt : float) -> void:
 		velocity = velocity.move_toward(Vector2.ZERO, cur_acc)
 	
 	velocity = move_and_slide(velocity)
+	
+	if vel.x > 0.0:
+		chr.scale.x = 1.0
+	elif vel.x < 0.0:
+		chr.scale.x = -1.0
 
 func attack() -> void:
 	pass

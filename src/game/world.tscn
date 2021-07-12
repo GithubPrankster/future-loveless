@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/game/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/assets/football.jpg" type="Texture" id=2]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 320, 74 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 13, 106 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "fade-in"
@@ -35,6 +38,18 @@ texture = ExtResource( 2 )
 [node name="top" type="CollisionShape2D" parent="world_box"]
 position = Vector2( 320, 74 )
 shape = SubResource( 2 )
+
+[node name="top2" type="CollisionShape2D" parent="world_box"]
+position = Vector2( 320, 434 )
+shape = SubResource( 2 )
+
+[node name="top3" type="CollisionShape2D" parent="world_box"]
+position = Vector2( -13, 254 )
+shape = SubResource( 3 )
+
+[node name="top4" type="CollisionShape2D" parent="world_box"]
+position = Vector2( 653, 254 )
+shape = SubResource( 3 )
 
 [node name="playfield" type="YSort" parent="."]
 

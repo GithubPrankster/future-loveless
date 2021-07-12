@@ -2,6 +2,7 @@ extends Node2D
 
 onready var anim = $anims
 onready var kid_anim = $kids/anim
+
 var opening_out : bool = false
 
 func _process(_delta) -> void:
