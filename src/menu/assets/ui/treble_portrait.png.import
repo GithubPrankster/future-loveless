@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/casey_portrait.png-ec9ae0f95bf66695b287f5e7d48eb339.s3tc.stex"
-path.etc2="res://.import/casey_portrait.png-ec9ae0f95bf66695b287f5e7d48eb339.etc2.stex"
+path.s3tc="res://.import/treble_portrait.png-62ad41a9de168f2aafef7eb58bca5c85.s3tc.stex"
+path.etc2="res://.import/treble_portrait.png-62ad41a9de168f2aafef7eb58bca5c85.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,13 +11,13 @@ metadata={
 
 [deps]
 
-source_file="res://src/menu/assets/casey_portrait.png"
-dest_files=[ "res://.import/casey_portrait.png-ec9ae0f95bf66695b287f5e7d48eb339.s3tc.stex", "res://.import/casey_portrait.png-ec9ae0f95bf66695b287f5e7d48eb339.etc2.stex" ]
+source_file="res://src/menu/assets/ui/treble_portrait.png"
+dest_files=[ "res://.import/treble_portrait.png-62ad41a9de168f2aafef7eb58bca5c85.s3tc.stex", "res://.import/treble_portrait.png-62ad41a9de168f2aafef7eb58bca5c85.etc2.stex" ]
 
 [params]
 
 compress/mode=2
-compress/lossy_quality=0.7
+compress/lossy_quality=0.65
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

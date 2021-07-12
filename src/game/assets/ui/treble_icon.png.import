@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/treble_portrait.png-2396108635453669d096f80c59967354.s3tc.stex"
-path.etc2="res://.import/treble_portrait.png-2396108635453669d096f80c59967354.etc2.stex"
+path.s3tc="res://.import/treble_icon.png-3564f03bf089880a27b228a9e4f62726.s3tc.stex"
+path.etc2="res://.import/treble_icon.png-3564f03bf089880a27b228a9e4f62726.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,13 +11,13 @@ metadata={
 
 [deps]
 
-source_file="res://src/menu/assets/treble_portrait.png"
-dest_files=[ "res://.import/treble_portrait.png-2396108635453669d096f80c59967354.s3tc.stex", "res://.import/treble_portrait.png-2396108635453669d096f80c59967354.etc2.stex" ]
+source_file="res://src/game/assets/ui/treble_icon.png"
+dest_files=[ "res://.import/treble_icon.png-3564f03bf089880a27b228a9e4f62726.s3tc.stex", "res://.import/treble_icon.png-3564f03bf089880a27b228a9e4f62726.etc2.stex" ]
 
 [params]
 
 compress/mode=2
-compress/lossy_quality=0.65
+compress/lossy_quality=0.57
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://src/menu/assets/casey-fw.wav" type="AudioStream" id=1]
-[ext_resource path="res://src/menu/assets/casey_portrait.png" type="Texture" id=2]
-[ext_resource path="res://src/menu/assets/lofont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://src/menu/assets/sound/casey-fw.wav" type="AudioStream" id=1]
+[ext_resource path="res://src/menu/assets/ui/casey_portrait.png" type="Texture" id=2]
+[ext_resource path="res://src/menu/assets/font/lofont.tres" type="DynamicFont" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "hover"

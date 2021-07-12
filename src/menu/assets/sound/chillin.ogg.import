@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/chillin.ogg-addd573d2d2b225db66f69079aef8e06.oggstr"
+
+[deps]
+
+source_file="res://src/menu/assets/sound/chillin.ogg"
+dest_files=[ "res://.import/chillin.ogg-addd573d2d2b225db66f69079aef8e06.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=113.454

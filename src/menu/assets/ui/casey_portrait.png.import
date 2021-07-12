@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/casey_icon.png-af90f6acce9140dc91d43fe289b5901f.s3tc.stex"
-path.etc2="res://.import/casey_icon.png-af90f6acce9140dc91d43fe289b5901f.etc2.stex"
+path.s3tc="res://.import/casey_portrait.png-117caf42a2146e22dc7904efa7714409.s3tc.stex"
+path.etc2="res://.import/casey_portrait.png-117caf42a2146e22dc7904efa7714409.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,13 +11,13 @@ metadata={
 
 [deps]
 
-source_file="res://src/game/assets/casey_icon.png"
-dest_files=[ "res://.import/casey_icon.png-af90f6acce9140dc91d43fe289b5901f.s3tc.stex", "res://.import/casey_icon.png-af90f6acce9140dc91d43fe289b5901f.etc2.stex" ]
+source_file="res://src/menu/assets/ui/casey_portrait.png"
+dest_files=[ "res://.import/casey_portrait.png-117caf42a2146e22dc7904efa7714409.s3tc.stex", "res://.import/casey_portrait.png-117caf42a2146e22dc7904efa7714409.etc2.stex" ]
 
 [params]
 
 compress/mode=2
-compress/lossy_quality=0.57
+compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/treble-fw.wav-f4c711aadbde1ba7b916d3bdf02f0f56.sample"
+path="res://.import/treble-fw.wav-e907e8aea05503b375bb3885eb13495d.sample"
 
 [deps]
 
-source_file="res://src/menu/assets/treble-fw.wav"
-dest_files=[ "res://.import/treble-fw.wav-f4c711aadbde1ba7b916d3bdf02f0f56.sample" ]
+source_file="res://src/menu/assets/sound/treble-fw.wav"
+dest_files=[ "res://.import/treble-fw.wav-e907e8aea05503b375bb3885eb13495d.sample" ]
 
 [params]
 

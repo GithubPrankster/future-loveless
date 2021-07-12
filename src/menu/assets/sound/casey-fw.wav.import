@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/casey-fw.wav-b73719d3d9dbf4d849edcfb52eb0755b.sample"
+path="res://.import/casey-fw.wav-68afcf84a9128db9f641efb1a845fdae.sample"
 
 [deps]
 
-source_file="res://src/menu/assets/casey-fw.wav"
-dest_files=[ "res://.import/casey-fw.wav-b73719d3d9dbf4d849edcfb52eb0755b.sample" ]
+source_file="res://src/menu/assets/sound/casey-fw.wav"
+dest_files=[ "res://.import/casey-fw.wav-68afcf84a9128db9f641efb1a845fdae.sample" ]
 
 [params]
 

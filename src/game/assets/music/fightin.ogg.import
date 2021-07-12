@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/fightin.ogg-42ceee4a51bc8642708b7ab2124dff72.oggstr"
+
+[deps]
+
+source_file="res://src/game/assets/music/fightin.ogg"
+dest_files=[ "res://.import/fightin.ogg-42ceee4a51bc8642708b7ab2124dff72.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=123.428
