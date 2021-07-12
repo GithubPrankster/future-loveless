@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/common/Excelorate-Font.otf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+outline_size = 2
+outline_color = Color( 0, 0.156863, 0.188235, 1 )
+font_data = ExtResource( 1 )
+
+[node name="wave" type="Label"]
+self_modulate = Color( 0, 0, 0, 0.419608 )
+margin_left = 419.0
+margin_top = 10.0
+margin_right = 630.0
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 4 )
+text = "::wave 1::"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wave2" type="Label" parent="."]
+modulate = Color( 0.529412, 0.917647, 1, 1 )
+margin_left = -2.0
+margin_top = -2.0
+margin_right = 209.0
+margin_bottom = 31.0
+custom_fonts/font = SubResource( 4 )
+text = "::wave 1::"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wave_progress" type="ProgressBar" parent="."]
+margin_left = 23.0
+margin_top = 33.0
+margin_right = 193.0
+margin_bottom = 44.0
+max_value = 8.0
+step = 1.0
+value = 8.0
+rounded = true
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}

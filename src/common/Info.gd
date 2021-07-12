@@ -8,6 +8,8 @@ var it_goes : bool = false
 enum {PLAYER_TREBLE = 0, PLAYER_CASEY = 1}
 var chosen_player : int = -1
 
+signal player_hurt(hp)
+
 func _process(_delta):
 	if Input.is_action_just_pressed("fullscreen"):
 		OS.window_fullscreen = !OS.window_fullscreen

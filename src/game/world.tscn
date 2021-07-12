@@ -1,17 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/game/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/assets/football.jpg" type="Texture" id=2]
-[ext_resource path="res://src/game/assets/casey_icon.png" type="Texture" id=3]
+[ext_resource path="res://src/game/player/casey_icon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game/wave.tscn" type="PackedScene" id=4]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 320, 74 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 13, 106 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "fade-in"
+[sub_resource type="Animation" id=3]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -37,31 +37,48 @@ texture = ExtResource( 2 )
 
 [node name="top" type="CollisionShape2D" parent="world_box"]
 position = Vector2( 320, 74 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="top2" type="CollisionShape2D" parent="world_box"]
 position = Vector2( 320, 434 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="top3" type="CollisionShape2D" parent="world_box"]
 position = Vector2( -13, 254 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="top4" type="CollisionShape2D" parent="world_box"]
 position = Vector2( 653, 254 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="playfield" type="YSort" parent="."]
 
 [node name="player" parent="playfield" instance=ExtResource( 1 )]
 position = Vector2( 320, 180 )
 
-[node name="casey_icon" type="Sprite" parent="."]
-position = Vector2( 47, 49 )
-rotation = 3.14159
-scale = Vector2( 0.15, -0.15 )
-texture = ExtResource( 3 )
+[node name="player_icon" parent="." instance=ExtResource( 3 )]
+position = Vector2( 50, 50 )
+
+[node name="health" type="ProgressBar" parent="."]
+margin_left = 94.0
+margin_top = 19.0
+margin_right = 307.0
+margin_bottom = 33.0
+max_value = 8.0
+step = 1.0
+value = 8.0
+rounded = true
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="anims" type="AnimationPlayer" parent="."]
 autoplay = "fade-in"
-anims/fade-in = SubResource( 1 )
+anims/fade-in = SubResource( 3 )
+
+[node name="wave" parent="." instance=ExtResource( 4 )]
+margin_left = 420.0
+margin_top = 13.0
+margin_right = 631.0
+margin_bottom = 46.0
