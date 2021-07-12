@@ -33,14 +33,13 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.9 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ -80.0, 0.0 ]
+"values": [ -80.0, -46.733, 0.0 ]
 }
 
 [node name="world" type="Node2D"]
-modulate = Color( 0, 0, 0, 1 )
 
 [node name="football" type="Sprite" parent="."]
 position = Vector2( 310, 127.93 )
@@ -99,6 +98,5 @@ margin_bottom = 46.0
 
 [node name="fightin" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-volume_db = -80.0
 autoplay = true
 bus = "music"

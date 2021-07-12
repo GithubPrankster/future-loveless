@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/game/assets/treble_icon.png" type="Texture" id=1]
+[ext_resource path="res://src/game/player/icon.gd" type="Script" id=2]
+[ext_resource path="res://src/game/assets/player_icon.svg" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "hurt"
+tracks/0/type = "value"
+tracks/0/path = NodePath("icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("icon:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 14, -3 ), Vector2( 3.63199, -3 ), Vector2( 12.1809, -3 ), Vector2( 5.68646, -3 ), Vector2( 5, -3 ) ]
+}
+
+[node name="player_icon" type="Sprite"]
+self_modulate = Color( 1, 1, 1, 0.776471 )
+position = Vector2( 50, 49 )
+texture = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="icon" type="Sprite" parent="."]
+position = Vector2( 5, -3 )
+rotation = 3.14159
+scale = Vector2( 0.15, -0.15 )
+texture = ExtResource( 1 )
+hframes = 2
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/hurt = SubResource( 1 )
