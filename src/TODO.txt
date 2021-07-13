@@ -3,7 +3,7 @@ Fight Stuff:
 * States ->
 	* Attacking ["DONE"]
 	* Defending : (KH-like, fires timer) ["DONE"]
-	* Casting ->
+	* Casting -> -TARGET-
 		* Fire : (Cooldown of 4s)
 		* Ice : (Cooldown of 8s)
 		* Homerun : (Cooldown of 4s)
@@ -13,18 +13,18 @@ Fight Stuff:
 * Combo : (Enemies)
 
 -> Pause System
-* Handle going in and out (miyamoto meant it!)
+* Handle going in and out (miyamoto meant it!) -TARGET-
 * Volume control (Master, SFX, Music)
 * Back to beginning (shares logic with credits?)
 
 -> Enemies
-* Bully (throws punches)
+* Bully (throws punches) -TARGET-
 * Brat (throws wack at you and slaps)
 * Punk (wacks a club into you)
 * Dancer (what do you expect)
 
 -> Wave System
-* First Wave Impl
+* First Wave Impl -TARGET-
 * Cards ->
 	* Health+
 	* Rand. Magic Cooldown-
@@ -33,12 +33,12 @@ Fight Stuff:
 * Remaining waves
 
 -> Game Over
-* Fade everything
+* Fade everything -TARGET-
 * Play Music
 * Detect retry and react accordingly
 
 -> Ohmnia
-* Boss WARNING + Announcement
+* Boss WARNING + Announcement -TARGET-
 * Electric Arcs
 * Bolts
 * Breakdown (Desperation Move)
