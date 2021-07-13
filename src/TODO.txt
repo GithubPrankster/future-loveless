@@ -2,7 +2,7 @@ Fight Stuff:
 -> Combat
 * States ->
 	* Attacking ["DONE"]
-	* Defending : (KH-like, fires timer)
+	* Defending : (KH-like, fires timer) ["DONE"]
 	* Casting ->
 		* Fire : (Cooldown of 4s)
 		* Ice : (Cooldown of 8s)
