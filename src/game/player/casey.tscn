@@ -12,12 +12,6 @@ script = ExtResource( 1 )
 
 [node name="chr" type="Node2D" parent="."]
 
-[node name="shadow" type="Sprite" parent="chr"]
-modulate = Color( 0, 0, 0, 0.501961 )
-position = Vector2( 2, 29.2886 )
-scale = Vector2( -0.1, 0.026 )
-texture = ExtResource( 2 )
-
 [node name="casey" type="Sprite" parent="chr"]
 scale = Vector2( -0.1, 0.1 )
 texture = ExtResource( 2 )

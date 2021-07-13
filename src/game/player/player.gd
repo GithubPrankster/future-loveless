@@ -2,15 +2,12 @@ extends KinematicBody2D
 class_name Player
 
 # State Machine
-enum PlayerState {MOVIN,ATTACKIN,CASTIN,DEFEND,HURT,DEAD}
+enum PlayerState {MOVIN, ATTACKIN, CASTIN, DEFEND, HURT, DEAD}
 var state = PlayerState.MOVIN
 
 # Logic
 export(float) var FORCE  = 160.0
 var ACC : float = FORCE * 4.0
-
-var ATK_FORCE : float = FORCE * 8.0
-var ATK_ACC : float = 4.0
 
 var velocity : Vector2 = Vector2.ZERO
 var last_dir : Vector2 = Vector2.LEFT
@@ -19,6 +16,7 @@ onready var atk_timer = $atk_timer
 
 # Animation
 onready var chr = $chr
+onready var hit = $chr/hitbox/box
 
 func axis() -> Vector2:
 	var vert : float = Input.get_action_strength("down") - Input.get_action_strength("up")
@@ -39,6 +37,7 @@ func move(dt : float) -> void:
 	
 	if Input.is_action_just_pressed("attack"):
 		state = PlayerState.ATTACKIN
+		hit.disabled = false
 		atk_timer.start()
 	
 	if Input.is_action_just_pressed("defend"):
@@ -66,10 +65,7 @@ func _physics_process(delta):
 			defend()
 	velocity = move_and_slide(velocity)
 
-func _process(_delta) -> void:
-	scale.x = (global_position.y / get_viewport().size.y) * 1.75
-	scale.y = scale.x
-
 # PLACEHOLDER UNTIL ANIM COMES ALONG!
 func atk_timeout():
 	state = PlayerState.MOVIN
+	hit.disabled = true
