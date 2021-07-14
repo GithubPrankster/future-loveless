@@ -12,10 +12,9 @@ var ACC : float = FORCE * 4.0
 var velocity : Vector2 = Vector2.ZERO
 var last_dir : Vector2 = Vector2.LEFT
 
-onready var atk_timer = $atk_timer
-
 # Animation
 onready var chr = $chr
+onready var avatar = $chr/avatar
 onready var hit = $chr/hitbox/box
 
 func axis() -> Vector2:
@@ -38,11 +37,11 @@ func move(dt : float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		state = PlayerState.ATTACKIN
 		hit.disabled = false
-		atk_timer.start()
+		avatar.play("punch")
 	
 	if Input.is_action_just_pressed("defend"):
 		state = PlayerState.DEFEND
-		atk_timer.start()
+		avatar.play("defend")
 	
 	if vel.x > 0.0:
 		chr.scale.x = -1.0
@@ -50,7 +49,7 @@ func move(dt : float) -> void:
 		chr.scale.x = 1.0
 
 func attack() -> void:
-	velocity = last_dir * FORCE
+	velocity = last_dir * (FORCE * 0.5)
 
 func defend() -> void:
 	velocity = Vector2.ZERO
@@ -65,7 +64,9 @@ func _physics_process(delta):
 			defend()
 	velocity = move_and_slide(velocity)
 
-# PLACEHOLDER UNTIL ANIM COMES ALONG!
-func atk_timeout():
+func anim_finish():
+	match(state):
+		PlayerState.ATTACKIN:
+			hit.disabled = true
 	state = PlayerState.MOVIN
-	hit.disabled = true
+	avatar.play("default")

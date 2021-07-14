@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/game/hurtbox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/enemy/basic.gd" type="Script" id=2]
@@ -14,14 +14,25 @@ extents = Vector2( 23, 33 )
 [sub_resource type="CircleShape2D" id=3]
 radius = 239.075
 
+[sub_resource type="Animation" id=4]
+resource_name = "death"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("chr:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 1, 0.905882, 0 ) ]
+}
+
 [node name="enemy" type="KinematicBody2D"]
 collision_layer = 0
 script = ExtResource( 2 )
-
-[node name="amog" type="Sprite" parent="."]
-position = Vector2( 1, 1 )
-scale = Vector2( 0.406667, 0.405293 )
-texture = ExtResource( 3 )
 
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 12 )
@@ -42,6 +53,16 @@ wait_time = 0.5
 
 [node name="detect" type="CollisionShape2D" parent="area"]
 shape = SubResource( 3 )
+
+[node name="chr" type="Node2D" parent="."]
+
+[node name="amog" type="Sprite" parent="chr"]
+position = Vector2( 1, 1 )
+scale = Vector2( 0.406667, 0.405293 )
+texture = ExtResource( 3 )
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/death = SubResource( 4 )
 
 [connection signal="area_entered" from="hurtbox" to="." method="hurt_func"]
 [connection signal="timeout" from="knockback" to="." method="knock_timeout"]
