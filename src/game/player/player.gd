@@ -7,10 +7,13 @@ var state = PlayerState.MOVIN
 
 # Logic
 export(float) var FORCE  = 160.0
-var ACC : float = FORCE * 4.0
+onready var ACC : float = FORCE * 4.0
 
 var velocity : Vector2 = Vector2.ZERO
 var last_dir : Vector2 = Vector2.LEFT
+
+export(int) var health = 16
+onready var max_health = health
 
 # Animation
 onready var chr = $chr

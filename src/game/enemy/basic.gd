@@ -4,9 +4,10 @@ onready var knock_timer = $knockback
 onready var anim = $anim
 
 export(int, 8, 32) var health : int = 16
+onready var max_health = health
 
 export(float) var FORCE  = 320.0
-var ACC : float = FORCE * 4.0
+onready var ACC : float = FORCE * 4.0
 
 var velocity : Vector2 = Vector2.ZERO
 
@@ -25,7 +26,7 @@ func hurt_func(area):
 		state = EnemyState.STUNNED
 		knock_timer.start()
 		
-		health -= 8
+		health -= area.attack
 		if health <= 0:
 			anim.play("death")
 			yield(anim, "animation_finished")

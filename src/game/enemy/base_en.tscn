@@ -46,9 +46,6 @@ collision_mask = 0
 position = Vector2( 0, 4 )
 shape = SubResource( 2 )
 
-[node name="knockback" type="Timer" parent="."]
-wait_time = 0.5
-
 [node name="area" type="Area2D" parent="."]
 
 [node name="detect" type="CollisionShape2D" parent="area"]
@@ -60,6 +57,9 @@ shape = SubResource( 3 )
 position = Vector2( 1, 1 )
 scale = Vector2( 0.406667, 0.405293 )
 texture = ExtResource( 3 )
+
+[node name="knockback" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="anim" type="AnimationPlayer" parent="."]
 anims/death = SubResource( 4 )

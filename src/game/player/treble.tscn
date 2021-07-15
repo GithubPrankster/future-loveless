@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/game/player/player.gd" type="Script" id=1]
 [ext_resource path="res://src/game/player/treble/treble-idle.png" type="Texture" id=2]
 [ext_resource path="res://src/game/hitbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/game/player/treble/treble-hurt.png" type="Texture" id=4]
 [ext_resource path="res://src/game/player/treble/treble-punch.png" type="Texture" id=5]
+[ext_resource path="res://src/game/hitbox.gd" type="Script" id=6]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 1
@@ -77,6 +78,7 @@ playing = true
 position = Vector2( -32, 0 )
 collision_layer = 0
 collision_mask = 8
+script = ExtResource( 6 )
 
 [node name="box" parent="chr/hitbox" index="0"]
 position = Vector2( 3, 0 )
