@@ -33,9 +33,11 @@ func move(dt : float) -> void:
 		# WALKIN
 		velocity = velocity.move_toward(vel * FORCE, cur_acc)
 		last_dir = vel
+		avatar.play("walk")
 	else:
 		# IDLIN (for lamers)
 		velocity = velocity.move_toward(Vector2.ZERO, cur_acc)
+		avatar.play("default")
 	
 	if Input.is_action_just_pressed("attack"):
 		state = PlayerState.ATTACKIN
