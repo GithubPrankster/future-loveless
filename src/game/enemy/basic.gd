@@ -1,8 +1,10 @@
 extends KinematicBody2D
 
+# Anim
 onready var knock_timer = $knockback
 onready var anim = $anim
 
+# Logic
 export(int, 8, 32) var health : int = 16
 onready var max_health = health
 
@@ -13,6 +15,8 @@ var velocity : Vector2 = Vector2.ZERO
 
 enum EnemyState{MOVIN, STUNNED}
 var state = EnemyState.MOVIN
+
+var player = null
 
 func _physics_process(delta):
 	velocity = velocity.move_toward(Vector2.ZERO, ACC * delta)

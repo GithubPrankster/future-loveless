@@ -46,6 +46,10 @@ func move(dt : float) -> void:
 		state = PlayerState.DEFEND
 		avatar.play("defend")
 	
+	if Input.is_action_just_pressed("cast"):
+		state = PlayerState.CASTIN
+		avatar.play("cast")
+		Info.emit_signal("magic_cast", Info.MAGIC_ICE, Vector2(-chr.scale.x, 0) * FORCE, global_position)
 	if vel.x > 0.0:
 		chr.scale.x = -1.0
 	elif vel.x < 0.0:
@@ -57,6 +61,14 @@ func attack() -> void:
 func defend() -> void:
 	velocity = Vector2.ZERO
 
+func cast() -> void:
+	velocity = Vector2.ZERO
+
+# TODO: Properly have hurt stuff
+func hurt() -> void:
+	state = PlayerState.HURT
+	avatar.play("hurt")
+
 func _physics_process(delta):
 	match(state):
 		PlayerState.MOVIN:
@@ -65,6 +77,8 @@ func _physics_process(delta):
 			attack()
 		PlayerState.DEFEND:
 			defend()
+		PlayerState.CASTIN:
+			cast()
 	velocity = move_and_slide(velocity)
 
 func anim_finish():

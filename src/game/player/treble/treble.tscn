@@ -1,11 +1,36 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://src/game/player/player.gd" type="Script" id=1]
 [ext_resource path="res://src/game/player/treble/treble-idle.png" type="Texture" id=2]
-[ext_resource path="res://src/game/hitbox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/game/player/hitbox.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/game/player/treble/treble-hurt.png" type="Texture" id=4]
 [ext_resource path="res://src/game/player/treble/treble-punch.png" type="Texture" id=5]
-[ext_resource path="res://src/game/hitbox.gd" type="Script" id=6]
+[ext_resource path="res://src/game/player/treble/treble-cast.png" type="Texture" id=6]
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 1
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 750, 750 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 1
+atlas = ExtResource( 6 )
+region = Rect2( 750, 0, 750, 750 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 1
+atlas = ExtResource( 6 )
+region = Rect2( 1500, 0, 750, 750 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 1
+atlas = ExtResource( 6 )
+region = Rect2( 2250, 0, 750, 750 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 1
+atlas = ExtResource( 6 )
+region = Rect2( 3000, 0, 750, 750 )
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 1
@@ -35,8 +60,18 @@ region = Rect2( 2250, 0, 750, 750 )
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
-"loop": true,
+"loop": false,
 "name": "default",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "defend",
+"speed": 12.0
+}, {
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "cast",
 "speed": 12.0
 }, {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
@@ -47,11 +82,6 @@ animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": false,
 "name": "hurt",
-"speed": 12.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ],
-"loop": false,
-"name": "defend",
 "speed": 12.0
 } ]
 
@@ -72,13 +102,11 @@ script = ExtResource( 1 )
 position = Vector2( 0, -13 )
 scale = Vector2( 0.175, 0.175 )
 frames = SubResource( 6 )
-playing = true
 
 [node name="hitbox" parent="chr" instance=ExtResource( 3 )]
 position = Vector2( -32, 0 )
 collision_layer = 0
 collision_mask = 8
-script = ExtResource( 6 )
 
 [node name="box" parent="chr/hitbox" index="0"]
 position = Vector2( 3, 0 )
