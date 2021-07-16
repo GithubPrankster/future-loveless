@@ -12,8 +12,12 @@ enum {MAGIC_ICE = 0, MAGIC_FIRE = 1, MAGIC_BUBBLES = 2, MAGIC_BALL = 3}
 
 # Ouchy ouch
 signal player_hurt(hp)
+# Freeze!
+signal mana_spent(mp)
 # Ok so here's some ice
 signal magic_cast(magic_type, velocity, pos)
+# wow
+signal new_health(hp)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("fullscreen"):

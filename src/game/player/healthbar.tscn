@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/game/assets/ui/health_over.png" type="Texture" id=2]
+[ext_resource path="res://src/game/assets/ui/health_under.png" type="Texture" id=3]
+
+[node name="health" type="TextureProgress"]
+margin_left = 51.0
+margin_top = -35.0
+margin_right = 284.0
+margin_bottom = -11.0
+max_value = 16.0
+value = 16.0
+rounded = true
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 2 )
+nine_patch_stretch = true
+stretch_margin_left = 8
+stretch_margin_top = 8
+stretch_margin_right = 8
+stretch_margin_bottom = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}

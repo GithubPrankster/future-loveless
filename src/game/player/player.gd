@@ -12,8 +12,8 @@ onready var ACC : float = FORCE * 4.0
 var velocity : Vector2 = Vector2.ZERO
 var last_dir : Vector2 = Vector2.LEFT
 
-export(int) var health = 16
-onready var max_health = health
+onready var stats = $stats
+var switched : bool = false
 
 # Animation
 onready var chr = $chr
@@ -48,10 +48,16 @@ func move(dt : float) -> void:
 		state = PlayerState.DEFEND
 		avatar.play("defend")
 	
+	if Input.is_action_just_pressed("switch"):
+		switched = !switched
+	
 	if Input.is_action_just_pressed("cast"):
-		state = PlayerState.CASTIN
-		avatar.play("cast")
-		Info.emit_signal("magic_cast", Info.MAGIC_ICE, Vector2(-chr.scale.x, 0) * FORCE, global_position)
+		if stats.mana > 0:
+			state = PlayerState.CASTIN
+			avatar.play("cast")
+			Info.emit_signal("magic_cast", stats.powers[int(switched)], Vector2(-chr.scale.x, 0) * FORCE, global_position)
+			stats.mana -= 1
+	
 	if vel.x > 0.0:
 		chr.scale.x = -1.0
 	elif vel.x < 0.0:

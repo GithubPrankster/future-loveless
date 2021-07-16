@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/game/player/player.gd" type="Script" id=1]
 [ext_resource path="res://src/game/player/treble/treble-idle.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://src/game/player/treble/treble-punch.png" type="Texture" id=5]
 [ext_resource path="res://src/game/player/treble/treble-cast.png" type="Texture" id=6]
 [ext_resource path="res://src/game/player/treble/treble-walk.png" type="Texture" id=7]
+[ext_resource path="res://src/game/player/stats.gd" type="Script" id=8]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 1
@@ -142,6 +143,9 @@ disabled = true
 [node name="collision" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 12 )
 shape = SubResource( 17 )
+
+[node name="stats" type="Node" parent="."]
+script = ExtResource( 8 )
 
 [connection signal="animation_finished" from="chr/avatar" to="." method="anim_finish"]
 
