@@ -15,7 +15,7 @@ resource_name = "fade-in"
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -25,6 +25,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("endin:volume_db")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -80.0, 0.0 ]
+}
 
 [node name="credits" type="Node2D"]
 script = ExtResource( 4 )
@@ -33,6 +45,19 @@ script = ExtResource( 4 )
 margin_right = 374.0
 margin_bottom = 360.0
 color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="thx2" type="Label" parent="bg"]
+modulate = Color( 0.788235, 1, 0.776471, 1 )
+margin_left = 25.0
+margin_top = 338.0
+margin_right = 349.0
+margin_bottom = 354.0
+custom_fonts/font = SubResource( 1 )
+text = "press esc/select to restart"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -61,9 +86,9 @@ __meta__ = {
 }
 
 [node name="centerer2" type="CenterContainer" parent="bg"]
-margin_top = 318.0
+margin_top = 294.0
 margin_right = 374.0
-margin_bottom = 357.0
+margin_bottom = 333.0
 __meta__ = {
 "_edit_use_anchors_": false
 }

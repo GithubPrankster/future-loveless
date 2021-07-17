@@ -23,6 +23,17 @@ signal magic_cast(magic_type, velocity, pos)
 # wow
 signal new_health(hp)
 
+# BAAACK IN TIMEEE
+# TO ANOTHER WORLD
+func reset_state():
+	opening_out = false
+	it_goes = false
+	chosen_player = -1
+	
+	magic_used = 0
+	health_lost = 0
+	attack_done = 0
+
 func _process(_delta):
 	if Input.is_action_just_pressed("fullscreen"):
 		OS.window_fullscreen = !OS.window_fullscreen
