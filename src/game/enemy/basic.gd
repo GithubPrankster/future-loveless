@@ -13,10 +13,9 @@ onready var ACC : float = FORCE * 4.0
 
 var velocity : Vector2 = Vector2.ZERO
 
+# Logic State
 enum EnemyState{MOVIN, STUNNED}
 var state = EnemyState.MOVIN
-
-var player = null
 
 func _physics_process(delta):
 	velocity = velocity.move_toward(Vector2.ZERO, ACC * delta)
@@ -35,7 +34,8 @@ func hurt_func(area):
 			anim.play("death")
 			yield(anim, "animation_finished")
 			queue_free()
+		else:
+			anim.play("hit")
 
 func knock_timeout():
 	state = EnemyState.MOVIN
-

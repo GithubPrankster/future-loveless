@@ -1,0 +1,155 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://src/game/hurtbox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/game/enemy/bully.gd" type="Script" id=2]
+[ext_resource path="res://src/game/enemy/bully/bully-idle.png" type="Texture" id=3]
+[ext_resource path="res://src/game/enemy/area.gd" type="Script" id=4]
+[ext_resource path="res://src/game/player/hitbox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/game/enemy/bully/bully-punch.png" type="Texture" id=6]
+[ext_resource path="res://src/game/enemy/bully/bully-walk.png" type="Texture" id=7]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 13.5725
+height = 28.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 28, 41 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 239.075
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 1
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 750, 750 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 1
+atlas = ExtResource( 7 )
+region = Rect2( 750, 0, 750, 750 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 1
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 750, 750 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 1
+atlas = ExtResource( 6 )
+region = Rect2( 750, 0, 750, 750 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 1
+atlas = ExtResource( 6 )
+region = Rect2( 1500, 0, 750, 750 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+}, {
+"frames": [ SubResource( 10 ), ExtResource( 3 ), SubResource( 11 ) ],
+"loop": true,
+"name": "walk",
+"speed": 6.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": false,
+"name": "punch",
+"speed": 6.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 31, 24 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 47, 34 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "death"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("chr:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 1, 0.905882, 0 ) ]
+}
+
+[node name="enemy" type="KinematicBody2D"]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource( 2 )
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 12 )
+shape = SubResource( 1 )
+
+[node name="hurtbox" parent="." instance=ExtResource( 1 )]
+collision_layer = 8
+collision_mask = 0
+
+[node name="box" parent="hurtbox" index="0"]
+position = Vector2( 0, 4 )
+shape = SubResource( 2 )
+
+[node name="area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource( 4 )
+
+[node name="detect" type="CollisionShape2D" parent="area"]
+shape = SubResource( 3 )
+
+[node name="chr" type="Node2D" parent="."]
+
+[node name="avatar" type="AnimatedSprite" parent="chr"]
+position = Vector2( 0, -20 )
+scale = Vector2( 0.175, 0.175 )
+frames = SubResource( 6 )
+playing = true
+
+[node name="hitbox" parent="chr" instance=ExtResource( 5 )]
+position = Vector2( -39, -2 )
+collision_layer = 0
+collision_mask = 4
+
+[node name="box" parent="chr/hitbox" index="0"]
+position = Vector2( -5, -18 )
+shape = SubResource( 5 )
+disabled = true
+
+[node name="punch_area" type="Area2D" parent="chr"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="detect" type="CollisionShape2D" parent="chr/punch_area"]
+modulate = Color( 0.988235, 0.498039, 0.992157, 1 )
+position = Vector2( -54, -13 )
+shape = SubResource( 12 )
+
+[node name="knockback" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/death = SubResource( 4 )
+
+[node name="cooldown" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="area_entered" from="hurtbox" to="." method="hurt_func"]
+[connection signal="body_entered" from="area" to="area" method="body_entered"]
+[connection signal="animation_finished" from="chr/avatar" to="." method="anim_finish"]
+[connection signal="body_entered" from="chr/punch_area" to="." method="punch_signal"]
+[connection signal="timeout" from="knockback" to="." method="knock_timeout"]
+[connection signal="timeout" from="cooldown" to="." method="chill_pill"]
+
+[editable path="hurtbox"]
+[editable path="chr/hitbox"]

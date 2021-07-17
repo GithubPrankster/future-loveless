@@ -20,7 +20,7 @@ func _ready():
 	Info.connect("player_hurt", self, "ouchy")
 	Info.connect("mana_spent", self, "magic")
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("switch"):
 		switched = !switched
 		if switched:

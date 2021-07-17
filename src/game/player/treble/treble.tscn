@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://src/game/player/player.gd" type="Script" id=1]
 [ext_resource path="res://src/game/player/treble/treble-idle.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://src/game/player/treble/treble-cast.png" type="Texture" id=6]
 [ext_resource path="res://src/game/player/treble/treble-walk.png" type="Texture" id=7]
 [ext_resource path="res://src/game/player/stats.gd" type="Script" id=8]
+[ext_resource path="res://src/game/hurtbox.tscn" type="PackedScene" id=9]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 1
@@ -36,47 +37,47 @@ region = Rect2( 3000, 0, 750, 750 )
 
 [sub_resource type="AtlasTexture" id=6]
 flags = 1
-atlas = ExtResource( 5 )
+atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 750, 750 )
 
 [sub_resource type="AtlasTexture" id=7]
 flags = 1
-atlas = ExtResource( 5 )
+atlas = ExtResource( 7 )
 region = Rect2( 750, 0, 750, 750 )
 
 [sub_resource type="AtlasTexture" id=8]
 flags = 1
-atlas = ExtResource( 5 )
-region = Rect2( 3000, 0, 750, 750 )
+atlas = ExtResource( 7 )
+region = Rect2( 1500, 0, 750, 750 )
 
 [sub_resource type="AtlasTexture" id=9]
 flags = 1
-atlas = ExtResource( 5 )
-region = Rect2( 1500, 0, 750, 750 )
+atlas = ExtResource( 7 )
+region = Rect2( 2250, 0, 750, 750 )
 
 [sub_resource type="AtlasTexture" id=10]
 flags = 1
 atlas = ExtResource( 5 )
-region = Rect2( 2250, 0, 750, 750 )
+region = Rect2( 0, 0, 750, 750 )
 
 [sub_resource type="AtlasTexture" id=11]
 flags = 1
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 750, 750 )
+atlas = ExtResource( 5 )
+region = Rect2( 750, 0, 750, 750 )
 
 [sub_resource type="AtlasTexture" id=12]
 flags = 1
-atlas = ExtResource( 7 )
-region = Rect2( 750, 0, 750, 750 )
+atlas = ExtResource( 5 )
+region = Rect2( 3000, 0, 750, 750 )
 
 [sub_resource type="AtlasTexture" id=13]
 flags = 1
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 1500, 0, 750, 750 )
 
 [sub_resource type="AtlasTexture" id=14]
 flags = 1
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 2250, 0, 750, 750 )
 
 [sub_resource type="SpriteFrames" id=15]
@@ -86,7 +87,12 @@ animations = [ {
 "name": "default",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "defend",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 4 ) ],
 "loop": false,
 "name": "hurt",
 "speed": 12.0
@@ -96,19 +102,14 @@ animations = [ {
 "name": "cast",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ],
-"loop": false,
-"name": "defend",
-"speed": 12.0
-}, {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
-"loop": false,
-"name": "punch",
-"speed": 12.0
-}, {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
 "name": "walk",
+"speed": 12.0
+}, {
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"loop": false,
+"name": "punch",
 "speed": 12.0
 } ]
 
@@ -118,6 +119,9 @@ radius = 18.0
 [sub_resource type="CapsuleShape2D" id=17]
 radius = 13.5725
 height = 28.0
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 14, 22 )
 
 [node name="player" type="KinematicBody2D"]
 collision_layer = 2
@@ -147,6 +151,16 @@ shape = SubResource( 17 )
 [node name="stats" type="Node" parent="."]
 script = ExtResource( 8 )
 
+[node name="hurtbox" parent="." instance=ExtResource( 9 )]
+collision_layer = 4
+collision_mask = 0
+
+[node name="box" parent="hurtbox" index="0"]
+position = Vector2( 0, 10 )
+shape = SubResource( 18 )
+
 [connection signal="animation_finished" from="chr/avatar" to="." method="anim_finish"]
+[connection signal="area_entered" from="hurtbox" to="." method="hurt_entered"]
 
 [editable path="chr/hitbox"]
+[editable path="hurtbox"]

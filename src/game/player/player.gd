@@ -15,6 +15,8 @@ var last_dir : Vector2 = Vector2.LEFT
 onready var stats = $stats
 var switched : bool = false
 
+onready var hurtbox = $hurtbox/box
+
 # Animation
 onready var chr = $chr
 onready var avatar = $chr/avatar
@@ -46,6 +48,7 @@ func move(dt : float) -> void:
 	
 	if Input.is_action_just_pressed("defend"):
 		state = PlayerState.DEFEND
+		hurtbox.disabled = true
 		avatar.play("defend")
 	
 	if Input.is_action_just_pressed("switch"):
@@ -66,16 +69,17 @@ func move(dt : float) -> void:
 func attack() -> void:
 	velocity = last_dir * (FORCE * 0.5)
 
-func defend() -> void:
+func nothing() -> void:
 	velocity = Vector2.ZERO
 
-func cast() -> void:
-	velocity = Vector2.ZERO
-
-# TODO: Properly have hurt stuff
-func hurt() -> void:
-	state = PlayerState.HURT
-	avatar.play("hurt")
+func hurt_entered(area):
+	if area.name == "hitbox":
+		var knock = (global_position - area.global_position).normalized().x
+		velocity = Vector2(knock, 0.0) * FORCE
+		
+		state = PlayerState.HURT
+		avatar.play("hurt")
+		stats.health -= area.attack
 
 func _physics_process(delta):
 	match(state):
@@ -84,14 +88,16 @@ func _physics_process(delta):
 		PlayerState.ATTACKIN:
 			attack()
 		PlayerState.DEFEND:
-			defend()
+			nothing()
 		PlayerState.CASTIN:
-			cast()
+			nothing()
 	velocity = move_and_slide(velocity)
 
 func anim_finish():
 	match(state):
 		PlayerState.ATTACKIN:
 			hit.disabled = true
+		PlayerState.DEFEND:
+			hurtbox.disabled = false
 	state = PlayerState.MOVIN
 	avatar.play("default")
