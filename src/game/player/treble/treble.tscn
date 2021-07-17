@@ -37,47 +37,47 @@ region = Rect2( 3000, 0, 750, 750 )
 
 [sub_resource type="AtlasTexture" id=6]
 flags = 1
-atlas = ExtResource( 5 )
+atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 750, 750 )
 
 [sub_resource type="AtlasTexture" id=7]
 flags = 1
-atlas = ExtResource( 5 )
+atlas = ExtResource( 7 )
 region = Rect2( 750, 0, 750, 750 )
 
 [sub_resource type="AtlasTexture" id=8]
 flags = 1
-atlas = ExtResource( 5 )
-region = Rect2( 3000, 0, 750, 750 )
+atlas = ExtResource( 7 )
+region = Rect2( 1500, 0, 750, 750 )
 
 [sub_resource type="AtlasTexture" id=9]
 flags = 1
-atlas = ExtResource( 5 )
-region = Rect2( 1500, 0, 750, 750 )
+atlas = ExtResource( 7 )
+region = Rect2( 2250, 0, 750, 750 )
 
 [sub_resource type="AtlasTexture" id=10]
 flags = 1
 atlas = ExtResource( 5 )
-region = Rect2( 2250, 0, 750, 750 )
+region = Rect2( 0, 0, 750, 750 )
 
 [sub_resource type="AtlasTexture" id=11]
 flags = 1
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 750, 750 )
+atlas = ExtResource( 5 )
+region = Rect2( 750, 0, 750, 750 )
 
 [sub_resource type="AtlasTexture" id=12]
 flags = 1
-atlas = ExtResource( 7 )
-region = Rect2( 750, 0, 750, 750 )
+atlas = ExtResource( 5 )
+region = Rect2( 3000, 0, 750, 750 )
 
 [sub_resource type="AtlasTexture" id=13]
 flags = 1
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 1500, 0, 750, 750 )
 
 [sub_resource type="AtlasTexture" id=14]
 flags = 1
-atlas = ExtResource( 7 )
+atlas = ExtResource( 5 )
 region = Rect2( 2250, 0, 750, 750 )
 
 [sub_resource type="SpriteFrames" id=15]
@@ -92,24 +92,24 @@ animations = [ {
 "name": "defend",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 4 ) ],
-"loop": false,
-"name": "hurt",
-"speed": 12.0
-}, {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
 "name": "cast",
 "speed": 12.0
 }, {
-"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
-"loop": false,
-"name": "punch",
-"speed": 12.0
-}, {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
 "name": "walk",
+"speed": 12.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "hurt",
+"speed": 12.0
+}, {
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"loop": false,
+"name": "punch",
 "speed": 12.0
 } ]
 

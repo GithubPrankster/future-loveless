@@ -1,7 +1,7 @@
 Fight Stuff:
 -> Combat
 * States ->
-	* Attacking ["DONE"]
+	* Attacking [DONE]
 	* Defending : (KH-like, fires timer) ["DONE"]
 	* Casting -> -TARGET-
 		* Fire : [DONE]

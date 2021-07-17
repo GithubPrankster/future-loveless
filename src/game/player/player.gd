@@ -53,7 +53,6 @@ func move(dt : float) -> void:
 	
 	if Input.is_action_just_pressed("switch"):
 		switched = !switched
-		print("aiaiaiaia", switched)
 	
 	if Input.is_action_just_pressed("cast"):
 		if stats.mana > 0:

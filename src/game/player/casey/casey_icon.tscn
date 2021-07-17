@@ -4,9 +4,9 @@
 [ext_resource path="res://src/game/player/icon.gd" type="Script" id=2]
 [ext_resource path="res://src/game/assets/ui/player_icon.svg" type="Texture" id=3]
 [ext_resource path="res://src/game/assets/ui/health_over.png" type="Texture" id=4]
-[ext_resource path="res://src/game/assets/ui/fire.png" type="Texture" id=5]
+[ext_resource path="res://src/game/assets/ui/bubble.png" type="Texture" id=5]
 [ext_resource path="res://src/game/player/assets/item_toggle.wav" type="AudioStream" id=6]
-[ext_resource path="res://src/game/assets/ui/cube.png" type="Texture" id=7]
+[ext_resource path="res://src/game/assets/ui/baseball.png" type="Texture" id=7]
 [ext_resource path="res://src/game/assets/ui/health_frame.png" type="Texture" id=8]
 [ext_resource path="res://src/game/assets/ui/health_under.png" type="Texture" id=9]
 
@@ -150,13 +150,13 @@ texture = ExtResource( 3 )
 self_modulate = Color( 1, 1, 1, 0.501961 )
 position = Vector2( 16, 4 )
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 5 )
+texture = ExtResource( 7 )
 
 [node name="cube" type="Sprite" parent="selectorama"]
 modulate = Color( 0.54902, 0.937255, 1, 1 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 1
-texture = ExtResource( 7 )
+texture = ExtResource( 5 )
 
 [node name="anim" type="AnimationPlayer" parent="selectorama"]
 anims/switch = SubResource( 1 )
