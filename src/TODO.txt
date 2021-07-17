@@ -58,7 +58,7 @@ Cutscene Stuff:
 	* "The Start"
 	* "Number 1"
 
-Credits Stuff:
+Credits Stuff: [FRICKIN DONE!!!!!!!]
 -> High Art
 * Casey proto-model
 * Treble proto-model

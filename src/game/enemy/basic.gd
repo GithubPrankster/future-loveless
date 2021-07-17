@@ -38,3 +38,4 @@ func hurt_func(area):
 
 func knock_timeout():
 	state = EnemyState.MOVIN
+

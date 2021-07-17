@@ -8,6 +8,10 @@ var it_goes : bool = false
 enum {PLAYER_TREBLE = 0, PLAYER_CASEY = 1}
 var chosen_player : int = -1
 
+var magic_used : int = 0
+var health_lost : int = 0
+var attack_done : int = 0
+
 enum {MAGIC_ICE = 0, MAGIC_FIRE = 1, MAGIC_BUBBLES = 2, MAGIC_BALL = 3}
 
 # Ouchy ouch

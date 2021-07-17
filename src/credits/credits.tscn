@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/common/Excelorate-Font.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/credits/assets/tradeoff.svg" type="Texture" id=2]
+[ext_resource path="res://src/credits/assets/homerun.png" type="Texture" id=3]
+[ext_resource path="res://src/credits/credits.gd" type="Script" id=4]
+[ext_resource path="res://src/credits/assets/endin.mp3" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 18
@@ -24,6 +27,7 @@ tracks/0/keys = {
 }
 
 [node name="credits" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="bg" type="ColorRect" parent="."]
 margin_right = 374.0
@@ -103,14 +107,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ending-img-placehold" type="ColorRect" parent="."]
-margin_left = 374.0
-margin_right = 640.0
-margin_bottom = 360.0
-color = Color( 0.607843, 0.615686, 0.537255, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="homerun" type="Sprite" parent="."]
+position = Vector2( 507, 180 )
+texture = ExtResource( 3 )
 
 [node name="stats" type="Label" parent="."]
 modulate = Color( 1, 0.776471, 0.776471, 1 )
@@ -134,3 +133,8 @@ texture = ExtResource( 2 )
 [node name="anims" type="AnimationPlayer" parent="."]
 autoplay = "fade-in"
 anims/fade-in = SubResource( 2 )
+
+[node name="endin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+bus = "music"

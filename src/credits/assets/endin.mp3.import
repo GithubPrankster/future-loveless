@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/endin.mp3-afa7f9e5b0ed00f969b2fc7be8937533.mp3str"
+
+[deps]
+
+source_file="res://src/credits/assets/endin.mp3"
+dest_files=[ "res://.import/endin.mp3-afa7f9e5b0ed00f969b2fc7be8937533.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
