@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 # Anim
-onready var knock_timer = $knockback
 onready var anim = $anim
 
 # Logic
@@ -63,17 +62,13 @@ func hurt_func(arear):
 		velocity = Vector2(knock, 0.0) * FORCE
 		
 		state = EnemyState.STUNNED
-		knock_timer.start()
+		avatar.play("hurt")
 		
 		health -= arear.attack
 		if health <= 0:
 			anim.play("death")
 			yield(anim, "animation_finished")
 			queue_free()
-
-func knock_timeout():
-	if state == EnemyState.STUNNED:
-		state = EnemyState.MOVIN
 
 func anim_finish():
 	match(state):

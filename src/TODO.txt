@@ -4,24 +4,21 @@ Fight Stuff:
 	* Attacking ["DONE"]
 	* Defending : (KH-like, fires timer) ["DONE"]
 	* Casting -> -TARGET-
-		* Fire : (Cooldown of 4s)
-		* Ice : (Cooldown of 8s)
-		* Homerun : (Cooldown of 4s)
-		* Bubbles : (Cooldown of 8s)
+		* Fire : [DONE]
+		* Ice : [DONE]
+		* Homerun : [DONE]
+		* Bubbles : [DONE]
 	* Death : (Game Over)
-* Health : (Treble : 16 HP, Casey: 8 HP)
-* Combo : (Enemies)
+* Health : (Treble : 16 HP, Casey: 8 HP) [DONE]
 
 -> Pause System
 * Handle going in and out (miyamoto meant it!) -TARGET-
 * Volume control (Master, SFX, Music)
 * Back to beginning (shares logic with credits?)
 
--> Enemies
-* Bully (throws punches) -TARGET-
-* Brat (throws wack at you and slaps)
-* Punk (wacks a club into you)
-* Dancer (what do you expect)
+-> Enemies [DONEeee]
+* Bully (throws punches) [DONE]
+* Griefer (throws wack at you and slaps) [DONE]
 
 -> Wave System
 * First Wave Impl -TARGET-

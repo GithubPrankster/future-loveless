@@ -12,7 +12,7 @@ var magic_used : int = 0
 var health_lost : int = 0
 var attack_done : int = 0
 
-enum {MAGIC_ICE = 0, MAGIC_FIRE = 1, MAGIC_BUBBLES = 2, MAGIC_BALL = 3}
+enum {MAGIC_ICE = 1, MAGIC_FIRE = 2, MAGIC_BUBBLES = 3, MAGIC_BALL = 4}
 
 # Ouchy ouch
 signal player_hurt(hp)

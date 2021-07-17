@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/amog.png-beadeb5f51c8d7227f365dfddb155c6a.s3tc.stex"
-path.etc2="res://.import/amog.png-beadeb5f51c8d7227f365dfddb155c6a.etc2.stex"
+path.s3tc="res://.import/casey_hurt.png-9b1646988cdc0dc90cd4209adc976598.s3tc.stex"
+path.etc2="res://.import/casey_hurt.png-9b1646988cdc0dc90cd4209adc976598.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,13 +11,13 @@ metadata={
 
 [deps]
 
-source_file="res://src/game/enemy/amog.png"
-dest_files=[ "res://.import/amog.png-beadeb5f51c8d7227f365dfddb155c6a.s3tc.stex", "res://.import/amog.png-beadeb5f51c8d7227f365dfddb155c6a.etc2.stex" ]
+source_file="res://src/game/player/casey/casey_hurt.png"
+dest_files=[ "res://.import/casey_hurt.png-9b1646988cdc0dc90cd4209adc976598.s3tc.stex", "res://.import/casey_hurt.png-9b1646988cdc0dc90cd4209adc976598.etc2.stex" ]
 
 [params]
 
 compress/mode=2
-compress/lossy_quality=0.45
+compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

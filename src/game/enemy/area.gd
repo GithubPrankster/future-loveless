@@ -8,4 +8,3 @@ func is_player_active() -> bool:
 func body_entered(body):
 	if body.name == "player":
 		player = body
-		print(body)

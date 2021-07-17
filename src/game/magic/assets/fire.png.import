@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ice-end.png-4f962e264241e24b900e188a170e8e76.stex"
+path="res://.import/fire.png-9a80fcdd1b21deae40fad9f0f49fc1f8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/game/magic/assets/ice-end.png"
-dest_files=[ "res://.import/ice-end.png-4f962e264241e24b900e188a170e8e76.stex" ]
+source_file="res://src/game/magic/assets/fire.png"
+dest_files=[ "res://.import/fire.png-9a80fcdd1b21deae40fad9f0f49fc1f8.stex" ]
 
 [params]
 

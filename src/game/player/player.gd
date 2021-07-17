@@ -53,13 +53,15 @@ func move(dt : float) -> void:
 	
 	if Input.is_action_just_pressed("switch"):
 		switched = !switched
+		print("aiaiaiaia", switched)
 	
 	if Input.is_action_just_pressed("cast"):
 		if stats.mana > 0:
 			state = PlayerState.CASTIN
 			avatar.play("cast")
+			print(switched, int(switched))
 			Info.emit_signal("magic_cast", stats.powers[int(switched)], Vector2(-chr.scale.x, 0) * FORCE, global_position)
-			stats.mana -= 1
+			stats.mana -= int(switched) + 1
 	
 	if vel.x > 0.0:
 		chr.scale.x = -1.0
