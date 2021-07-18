@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/common/Excelorate-Font.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://src/game/assets/ui/health_over.png" type="Texture" id=2]
 [ext_resource path="res://src/game/assets/ui/health_under.png" type="Texture" id=3]
+[ext_resource path="res://src/game/wave.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -24,9 +25,11 @@ margin_right = 635.0
 margin_bottom = 43.0
 custom_fonts/font = SubResource( 1 )
 text = "::wave 0::"
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+pos = [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
 
 [node name="title" type="Label" parent="."]
 modulate = Color( 0.529412, 0.917647, 1, 1 )
@@ -45,8 +48,8 @@ margin_left = 31.0
 margin_top = 34.0
 margin_right = 191.0
 margin_bottom = 50.0
-max_value = 8.0
-value = 8.0
+max_value = 4.0
+value = 4.0
 rounded = true
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 2 )
@@ -76,3 +79,15 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="pos" type="Node2D" parent="."]
+position = Vector2( -342, 151 )
+
+[node name="pos2" type="Node2D" parent="."]
+position = Vector2( 152, 147 )
+
+[node name="pos3" type="Node2D" parent="."]
+position = Vector2( 92, 300 )
+
+[node name="pos4" type="Node2D" parent="."]
+position = Vector2( -295, 303 )

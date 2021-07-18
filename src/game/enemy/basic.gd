@@ -33,6 +33,7 @@ func hurt_func(area):
 		if health <= 0:
 			anim.play("death")
 			yield(anim, "animation_finished")
+			Info.emit_signal("enemy_ded")
 			queue_free()
 		else:
 			anim.play("hit")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/game/pause_menu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/game/assets/football.jpg" type="Texture" id=2]
@@ -9,7 +9,7 @@
 [ext_resource path="res://src/game/world.gd" type="Script" id=7]
 [ext_resource path="res://src/game/game_over.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/game/assets/music/loosin.ogg" type="AudioStream" id=9]
-[ext_resource path="res://src/game/enemy/griefer.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/game/assets/music/shockin.ogg" type="AudioStream" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 320, 74 )
@@ -124,6 +124,33 @@ tracks/4/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=6]
+resource_name = "fade-away"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("shockin:volume_db")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+
 [sub_resource type="Animation" id=4]
 length = 2.0
 tracks/0/type = "value"
@@ -181,11 +208,17 @@ shape = SubResource( 2 )
 
 [node name="enemies" type="YSort" parent="playfield"]
 
-[node name="enemy2" parent="playfield/enemies" instance=ExtResource( 10 )]
-position = Vector2( 103, 267 )
-
 [node name="enemy" parent="playfield/enemies" instance=ExtResource( 6 )]
-position = Vector2( 389, 187 )
+position = Vector2( 139, 208 )
+
+[node name="enemy3" parent="playfield/enemies" instance=ExtResource( 6 )]
+position = Vector2( 225, 284 )
+
+[node name="enemy4" parent="playfield/enemies" instance=ExtResource( 6 )]
+position = Vector2( 382, 283 )
+
+[node name="enemy2" parent="playfield/enemies" instance=ExtResource( 6 )]
+position = Vector2( 469, 204 )
 
 [node name="ui" type="Control" parent="."]
 margin_right = 640.0
@@ -225,7 +258,14 @@ bus = "music"
 [node name="loosin" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 9 )
+bus = "music"
+
+[node name="shockin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -80.0
+bus = "music"
 
 [node name="anims" type="AnimationPlayer" parent="."]
 autoplay = "fade-in"
+anims/fade-away = SubResource( 6 )
 anims/fade-in = SubResource( 4 )

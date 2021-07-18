@@ -24,6 +24,10 @@ signal magic_cast(magic_type, velocity, pos)
 signal new_health(hp)
 # you screwed up.
 signal game_over
+# Another one bites the dust
+signal enemy_ded
+# finally
+signal the_end
 
 # BAAACK IN TIMEEE
 # TO ANOTHER WORLD

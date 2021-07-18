@@ -11,8 +11,12 @@ onready var fire = preload("res://src/game/magic/fire.tscn")
 onready var bubble = preload("res://src/game/magic/bubble.tscn")
 onready var homerun = preload("res://src/game/magic/homerun.tscn")
 
+onready var control = $control
+onready var anims = $anims
+
 func _ready():
 	Info.connect("magic_cast", self, "spawn_magic")
+	Info.connect("the_end", self, "the_end")
 	match(Info.chosen_player):
 		Info.PLAYER_CASEY:
 			var casey = load("res://src/game/player/casey/casey.tscn").instance()
@@ -60,3 +64,11 @@ func spawn_magic(magic_type, velocity, pos) -> void:
 			inst = ice.instance()
 	inst.global_position = pos
 	playfield.add_child(inst)
+
+func the_end() -> void:
+	control.queue_free()
+	set_process(false)
+	anims.play("fade-away")
+	yield(anims, "animation_finished")
+	SceneLoader.load_scene("res://src/credits/credits.tscn")
+	

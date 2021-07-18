@@ -45,6 +45,7 @@ func move(dt : float) -> void:
 		state = PlayerState.ATTACKIN
 		hit.disabled = false
 		avatar.play("punch")
+		Info.attack_done += 1
 	
 	if Input.is_action_just_pressed("defend"):
 		state = PlayerState.DEFEND
@@ -58,7 +59,6 @@ func move(dt : float) -> void:
 		if stats.mana > 0:
 			state = PlayerState.CASTIN
 			avatar.play("cast")
-			print(switched, int(switched))
 			Info.emit_signal("magic_cast", stats.powers[int(switched)], Vector2(-chr.scale.x, 0) * FORCE, global_position)
 			stats.mana -= int(switched) + 1
 	
