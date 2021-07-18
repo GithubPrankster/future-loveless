@@ -24,6 +24,7 @@ tracks/0/keys = {
 }
 
 [node name="loadin" type="Node2D"]
+pause_mode = 2
 
 [node name="rect" type="ColorRect" parent="."]
 margin_right = 640.0

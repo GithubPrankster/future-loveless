@@ -1,0 +1,395 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/common/FerriteCoreDX-Medium.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/game/pause_menu.gd" type="Script" id=2]
+[ext_resource path="res://src/game/assets/music/select.wav" type="AudioStream" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+outline_size = 2
+outline_color = Color( 0.133333, 0.133333, 0.133333, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+outline_size = 2
+outline_color = Color( 0.156863, 0.513726, 0.458824, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "select_main"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("sfx_vol:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.235294 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("music_vol:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.235294 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("select")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "select_music"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("main_vol:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.235294 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("sfx_vol:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.235294 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("select")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "select_sfx"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("main_vol:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.235294 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("music_vol:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.235294 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("select")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[node name="pause_menu" type="Control"]
+margin_right = 640.0
+margin_bottom = 360.0
+mouse_filter = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="plane" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -180.0
+margin_right = 320.0
+margin_bottom = 180.0
+color = Color( 0, 0, 0, 0.501961 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="plane2" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -320.0
+margin_top = -12.0
+margin_right = 320.0
+color = Color( 0, 0, 0, 0.501961 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="plane3" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -320.0
+margin_right = 320.0
+margin_bottom = 12.0
+color = Color( 0, 0, 0, 0.501961 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="paused_shadow" type="Label" parent="."]
+modulate = Color( 0.37, 0.37, 0.37, 1 )
+margin_left = 409.0
+margin_top = 298.0
+margin_right = 633.0
+margin_bottom = 346.0
+custom_fonts/font = SubResource( 1 )
+text = "paused."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="paused" type="Label" parent="."]
+margin_left = 409.0
+margin_top = 296.0
+margin_right = 633.0
+margin_bottom = 344.0
+custom_fonts/font = SubResource( 1 )
+text = "paused."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main_vol" type="HSlider" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -336.0
+margin_top = -80.0
+margin_right = -32.0
+margin_bottom = -64.0
+max_value = 1.0
+step = 0.05
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mainvol_shadow" type="Label" parent="main_vol"]
+modulate = Color( 0.47, 0.47, 0.47, 1 )
+anchor_top = 0.0416667
+anchor_bottom = 0.0416667
+margin_left = 4.0
+margin_top = -30.6667
+margin_right = 141.0
+margin_bottom = -1.66667
+custom_fonts/font = SubResource( 2 )
+text = "main vol."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mainvol" type="Label" parent="main_vol"]
+margin_left = 4.0
+margin_top = -32.0
+margin_right = 141.0
+margin_bottom = -3.0
+custom_fonts/font = SubResource( 2 )
+text = "main vol."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="music_vol" type="HSlider" parent="."]
+modulate = Color( 1, 1, 1, 0.235294 )
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -336.0
+margin_top = -16.0
+margin_right = -32.0
+max_value = 1.0
+step = 0.05
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="musicvol_shadow" type="Label" parent="music_vol"]
+modulate = Color( 0.47, 0.47, 0.47, 1 )
+anchor_top = 0.0416667
+anchor_bottom = 0.0416667
+margin_left = 4.0
+margin_top = -30.6667
+margin_right = 141.0
+margin_bottom = -1.66667
+custom_fonts/font = SubResource( 2 )
+text = "music vol."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="musicvol" type="Label" parent="music_vol"]
+margin_left = 4.0
+margin_top = -32.0
+margin_right = 141.0
+margin_bottom = -3.0
+custom_fonts/font = SubResource( 2 )
+text = "music vol."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sfx_vol" type="HSlider" parent="."]
+modulate = Color( 1, 1, 1, 0.235294 )
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -336.0
+margin_top = 48.0
+margin_right = -32.0
+margin_bottom = 64.0
+max_value = 1.0
+step = 0.05
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sfxvol_shadow" type="Label" parent="sfx_vol"]
+modulate = Color( 0.47, 0.47, 0.47, 1 )
+anchor_top = 0.0416667
+anchor_bottom = 0.0416667
+margin_left = 4.0
+margin_top = -30.6667
+margin_right = 141.0
+margin_bottom = -1.66667
+custom_fonts/font = SubResource( 2 )
+text = "sfx vol."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sfxvol" type="Label" parent="sfx_vol"]
+margin_left = 4.0
+margin_top = -32.0
+margin_right = 141.0
+margin_bottom = -3.0
+custom_fonts/font = SubResource( 2 )
+text = "sfx vol."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/select_main = SubResource( 3 )
+anims/select_music = SubResource( 4 )
+anims/select_sfx = SubResource( 5 )
+
+[node name="select" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "sfx"
+
+[node name="restart-info_shadow" type="Label" parent="."]
+modulate = Color( 0.21, 0.21, 0.21, 1 )
+margin_left = 10.0
+margin_top = 288.0
+margin_right = 291.0
+margin_bottom = 349.0
+custom_fonts/font = SubResource( 2 )
+text = "press shift
+to restart."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="restart-info" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 286.0
+margin_right = 289.0
+margin_bottom = 347.0
+custom_fonts/font = SubResource( 2 )
+text = "press shift
+to restart."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="continue-info_shadow" type="Label" parent="."]
+modulate = Color( 0.21, 0.21, 0.21, 1 )
+margin_left = 10.0
+margin_top = 11.0
+margin_right = 308.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 2 )
+text = "esc to continue."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="continue-info2" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 9.0
+margin_right = 306.0
+margin_bottom = 70.0
+custom_fonts/font = SubResource( 2 )
+text = "esc to continue."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="value_changed" from="main_vol" to="." method="main_vol_change"]
+[connection signal="value_changed" from="music_vol" to="." method="music_vol_change"]
+[connection signal="value_changed" from="sfx_vol" to="." method="sfx_vol_change"]

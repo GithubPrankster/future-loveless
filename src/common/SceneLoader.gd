@@ -41,3 +41,4 @@ func load_scene(path : String) -> void:
 	set_process(true)
 	
 	_scene_switcher(load_screen)
+	get_tree().paused = false
