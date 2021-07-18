@@ -11,7 +11,7 @@ height = 28.0
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 23, 33 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "death"
 length = 0.5
 tracks/0/type = "value"
@@ -27,7 +27,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0, 1, 0.905882, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "hit"
 length = 0.5
 tracks/0/type = "value"
@@ -63,14 +63,15 @@ shape = SubResource( 2 )
 [node name="chr" type="Node2D" parent="."]
 
 [node name="amog" type="Sprite" parent="chr"]
-position = Vector2( -4, -3 )
+position = Vector2( 2, -3 )
+scale = Vector2( 0.15, 0.15 )
 texture = ExtResource( 3 )
 
 [node name="knockback" type="Timer" parent="."]
 
 [node name="anim" type="AnimationPlayer" parent="."]
-anims/death = SubResource( 4 )
-anims/hit = SubResource( 5 )
+anims/death = SubResource( 3 )
+anims/hit = SubResource( 4 )
 
 [connection signal="area_entered" from="hurtbox" to="." method="hurt_func"]
 [connection signal="timeout" from="knockback" to="." method="knock_timeout"]

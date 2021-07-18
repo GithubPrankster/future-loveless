@@ -37,6 +37,8 @@ func spawn_magic(magic_type, velocity, pos) -> void:
 		Info.MAGIC_FIRE:
 			inst = fire.instance()
 			inst.velocity = velocity * 1.5
+			if velocity.x < 0:
+				inst.get_node("anim").flip_h = true
 			Info.magic_used += 1
 		Info.MAGIC_BUBBLES:
 			inst = bubble.instance()

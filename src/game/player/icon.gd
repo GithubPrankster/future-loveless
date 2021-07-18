@@ -12,6 +12,8 @@ func ouchy(hp : int) -> void:
 	if diff > 0:
 		anim.play("hurt")
 	health.value = hp
+	if health.value == 0:
+		Info.emit_signal("game_over")
 
 func magic(mp : int) -> void:
 	mana.value = mp

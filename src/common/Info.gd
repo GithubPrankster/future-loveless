@@ -22,6 +22,8 @@ signal mana_spent(mp)
 signal magic_cast(magic_type, velocity, pos)
 # wow
 signal new_health(hp)
+# you screwed up.
+signal game_over
 
 # BAAACK IN TIMEEE
 # TO ANOTHER WORLD
