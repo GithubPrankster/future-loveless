@@ -3,6 +3,7 @@ extends Node2D
 const SCREEN_MIDDLE = Vector2(320.0, 180.0)
 
 onready var playfield = $playfield
+onready var enemies = $playfield/enemies
 onready var ui = $ui
 
 onready var ice = preload("res://src/game/magic/ice.tscn")
@@ -11,12 +12,19 @@ onready var fire = preload("res://src/game/magic/fire.tscn")
 onready var bubble = preload("res://src/game/magic/bubble.tscn")
 onready var homerun = preload("res://src/game/magic/homerun.tscn")
 
+onready var basic = preload("res://src/game/enemy/base_en.tscn")
+onready var bully = preload("res://src/game/enemy/bully.tscn")
+onready var griefer = preload("res://src/game/enemy/griefer.tscn")
+onready var ohmnia = preload("res://src/game/enemy/ohmnia.tscn")
+
 onready var control = $control
 onready var anims = $anims
 
 func _ready():
 	Info.connect("magic_cast", self, "spawn_magic")
 	Info.connect("the_end", self, "the_end")
+	Info.connect("new_enemy", self, "new_enemy")
+	
 	match(Info.chosen_player):
 		Info.PLAYER_CASEY:
 			var casey = load("res://src/game/player/casey/casey.tscn").instance()
@@ -64,6 +72,14 @@ func spawn_magic(magic_type, velocity, pos) -> void:
 			inst = ice.instance()
 	inst.global_position = pos
 	playfield.add_child(inst)
+
+func new_enemy(type, pos) -> void:
+	var inst
+	match(type):
+		_:
+			inst = basic.instance()
+	inst.global_position = pos
+	enemies.add_child(inst)
 
 func the_end() -> void:
 	control.queue_free()

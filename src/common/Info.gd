@@ -28,6 +28,8 @@ signal game_over
 signal enemy_ded
 # finally
 signal the_end
+# another one ENTERS THE RING
+signal new_enemy(type, pos)
 
 # BAAACK IN TIMEEE
 # TO ANOTHER WORLD

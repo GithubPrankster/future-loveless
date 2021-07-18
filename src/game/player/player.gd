@@ -81,6 +81,7 @@ func hurt_entered(area):
 		state = PlayerState.HURT
 		avatar.play("hurt")
 		stats.health -= area.attack
+		Info.health_lost += area.attack
 
 func _physics_process(delta):
 	match(state):

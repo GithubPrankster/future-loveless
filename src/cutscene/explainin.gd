@@ -2,6 +2,16 @@ extends Node2D
 
 onready var pos = $pos
 onready var anim = $anim
+onready var text = $text
+
+const dialogue = [
+	"lolololololooll",
+	"and sends them flying across the city...",
+	"until... BOOM!\nIt becomes whole.",
+	"Also it teaches you magic somehow.\nBut alas, it's all it could do.",
+	"You and your new friend are ready to\nface the one causing trouble.",
+	"Well, sorta ready."
+]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,3 +31,4 @@ func _process(delta):
 			set_process(false)
 		else:
 			pos.get_node("story").frame = thingy
+			text.text = dialogue[thingy]

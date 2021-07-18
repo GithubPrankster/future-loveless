@@ -5,7 +5,7 @@
 [ext_resource path="res://src/game/control.gd" type="Script" id=3]
 [ext_resource path="res://src/game/wave.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/game/assets/music/fightin.ogg" type="AudioStream" id=5]
-[ext_resource path="res://src/game/enemy/base_en.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/game/enemy/ohmnia.tscn" type="PackedScene" id=6]
 [ext_resource path="res://src/game/world.gd" type="Script" id=7]
 [ext_resource path="res://src/game/game_over.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/game/assets/music/loosin.ogg" type="AudioStream" id=9]
@@ -150,6 +150,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 0.0, -80.0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("fightin:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
 
 [sub_resource type="Animation" id=4]
 length = 2.0
@@ -172,6 +184,18 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -80.0, -46.733, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("shockin:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
 "times": PoolRealArray( 0, 0.3, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
@@ -209,16 +233,7 @@ shape = SubResource( 2 )
 [node name="enemies" type="YSort" parent="playfield"]
 
 [node name="enemy" parent="playfield/enemies" instance=ExtResource( 6 )]
-position = Vector2( 139, 208 )
-
-[node name="enemy3" parent="playfield/enemies" instance=ExtResource( 6 )]
-position = Vector2( 225, 284 )
-
-[node name="enemy4" parent="playfield/enemies" instance=ExtResource( 6 )]
-position = Vector2( 382, 283 )
-
-[node name="enemy2" parent="playfield/enemies" instance=ExtResource( 6 )]
-position = Vector2( 469, 204 )
+position = Vector2( 505, 221 )
 
 [node name="ui" type="Control" parent="."]
 margin_right = 640.0
@@ -252,7 +267,6 @@ visible = false
 [node name="fightin" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 5 )
-autoplay = true
 bus = "music"
 
 [node name="loosin" type="AudioStreamPlayer" parent="."]
@@ -262,7 +276,7 @@ bus = "music"
 
 [node name="shockin" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
-volume_db = -80.0
+autoplay = true
 bus = "music"
 
 [node name="anims" type="AnimationPlayer" parent="."]
