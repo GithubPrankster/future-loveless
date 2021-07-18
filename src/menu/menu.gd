@@ -17,5 +17,5 @@ func _process(_delta) -> void:
 				Info.it_goes = true
 				anim.play("fade-out")
 				yield(anim, "animation_finished")
-				SceneLoader.load_scene("res://src/game/world.tscn")
+				SceneLoader.load_scene("res://src/cutscene/explainin.tscn")
 				set_process(false)

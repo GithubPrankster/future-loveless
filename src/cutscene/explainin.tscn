@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/cutscene/assets/talkin.ogg" type="AudioStream" id=1]
+[ext_resource path="res://src/cutscene/explainin.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "fade-in"
@@ -31,14 +32,23 @@ tracks/1/keys = {
 }
 
 [node name="cutscene" type="Node2D"]
-modulate = Color( 0, 0, 0, 1 )
+script = ExtResource( 2 )
 
 [node name="talkin" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
-volume_db = -80.0
 autoplay = true
 bus = "music"
 
 [node name="anim" type="AnimationPlayer" parent="."]
 autoplay = "fade-in"
 anims/fade-in = SubResource( 1 )
+
+[node name="pos" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_top = 264.0
+margin_right = 640.0
+margin_bottom = 360.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
