@@ -11,7 +11,7 @@ Fight Stuff:
 	* Death : (Game Over)
 * Health : (Treble : 16 HP, Casey: 8 HP) [DONE]
 
--> Pause System
+-> Pause System [DONE]
 * Handle going in and out (miyamoto meant it!) -TARGET-
 * Volume control (Master, SFX, Music)
 * Back to beginning (shares logic with credits?)
@@ -41,7 +41,7 @@ Fight Stuff:
 * Breakdown (Desperation Move)
 
 Cutscene Stuff:
--> Portraits
+-> Portraits [DONE]
 * (Wait for Roligt to give a heads up!)
 
 -> Text Typewritting
@@ -50,10 +50,8 @@ Cutscene Stuff:
 * SFX
 
 -> Dialogue
-* (Wait for Falco to give a heads up!)
 * Scenes ->
 	* "The Start"
-	* "Number 1"
 
 Credits Stuff: [FRICKIN DONE!!!!!!!]
 -> High Art
